@@ -14,7 +14,7 @@ Task history/persistence, accounts, MCP/tool execution, image generation, the ci
 ## Deploy from iPhone
 1. Vercel → Add New → Project → import GitHub repo `salimipuria-blip/-`, **Root Directory `poors`**, framework **Other**.
 2. Settings → Environment Variables: `ENGINE_TOKEN` (24+ random chars). Optional: one or more free keys from `.env.example`. Use provider accounts **without billing** attached.
-3. Redeploy. Open the site → «موتور ۳۰۰۰» → paste the token.
+3. Redeploy. Open the site → «موتور ۳۰۰۰» → «ورود به موتور» with the token. It sets a 7-day HttpOnly cookie; the token is never stored in the browser.
 
 Free keys (create on the phone, no card needed at the time of writing; check each site's current terms): Groq `console.groq.com/keys`, Google AI Studio `aistudio.google.com/apikey`, Cerebras `cloud.cerebras.ai`, OpenRouter `openrouter.ai/keys`.
 
@@ -22,7 +22,9 @@ Free keys (create on the phone, no card needed at the time of writing; check eac
 - `GET /api/health` — counts, verified skill bodies, which providers are configured (never keys).
 - `GET /api/skills?q=` — ranked skills.
 - `POST /api/tasks` `{input, mode: plan|answer}` — completes within one call.
-All require `Authorization: Bearer <ENGINE_TOKEN>`; without a token on Vercel they fail closed (503).
+- `POST/GET/DELETE /api/session` — login (cookie), status, logout; POST/DELETE need header `X-Requested-With: poors`.
+
+Engine routes accept the session cookie or `Authorization: Bearer <ENGINE_TOKEN>` (for scripts). Without a token on Vercel they fail closed (503).
 
 ## Checks
 `npm run check && npm test` · local preview: `ENGINE_TOKEN=... npm run dev` (port 3000).
