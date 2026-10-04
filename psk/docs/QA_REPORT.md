@@ -26,7 +26,7 @@ ok 7 - tampered skill body is rejected by the integrity check
 - Real Safari on a physical iPhone, a live free provider call, and Vercel deployment (see README).
 
 ## Vercel deployment (2026-10-04)
-- Project `poors-3000` (team PS, Hobby), root `poors`, deployment `dpl_3bQixMjDyoePvdBxKWoHpLDthJ5y` → READY.
-- `https://poors-3000.vercel.app/` → 200, V4 HTML served.
+- Project `psk-3000` (team PS, Hobby), root `psk`, deployment `dpl_3bQixMjDyoePvdBxKWoHpLDthJ5y` → READY.
+- `https://psk-3000.vercel.app/` → 200, V4 HTML served.
 - `/api/health` without a token → 401 (expected: function loaded, token guard active; a missing token would give 503).
 - Authenticated API calls were not run from the build container: its network policy blocks `*.vercel.app`. Run them from the site's «موتور ۳۰۰۰» panel.
