@@ -1,6 +1,6 @@
 # Mega Skills Router — Claude Code plugin
 
-One skill that routes each request to the relevant skills among **5,986** (3,000 PSK skills, the 6-skill business pack and 2,980 curated MIT-licensed GitHub skills), using 15 domain indexes and ~30,000 Persian / Finglish / English triggers. Only the matched skills are read, so Claude's context stays small.
+One skill that routes each request to the relevant skills among **5,986** (3,000 core skills, the 6-skill business pack and 2,980 curated MIT-licensed GitHub skills), using 15 domain indexes and ~30,000 Persian / Finglish / English triggers. Only the matched skills are read, so Claude's context stays small.
 
 ## Install
 In Claude Code:

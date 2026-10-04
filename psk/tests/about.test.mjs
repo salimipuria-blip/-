@@ -23,10 +23,14 @@ test('home page links to the about page in desktop and mobile nav',()=>{
  const home=readFileSync(join(pub,'index.html'),'utf8');
  assert.equal((home.match(/href="about\.html"/g)||[]).length,2);
 });
-test('brand is PSK everywhere; the old name does not appear in site files',()=>{
+test('brand is MEGA SKILLS 3000 everywhere; the old names do not appear in site files',()=>{
  const root=join(pub,'..');
  for(const f of ['public/index.html','public/about.html','public/app.js','public/engine-ui.js','README.md','package.json']){
-  assert.doesNotMatch(readFileSync(join(root,f),'utf8'),/poors/i,f);
+  const src=readFileSync(join(root,f),'utf8');
+  assert.doesNotMatch(src,/poors/i,f);
+  assert.doesNotMatch(src,/\bPSK\b/,f);
+  assert.doesNotMatch(src,/\bAPEX\b/,f);
+  assert.doesNotMatch(src,/PURIAS/,f);
  }
- assert.match(about,/<span class="brand-mark">PSK</);
+ assert.match(about,/<span class="brand-mark">MEGA SKILLS</);
 });

@@ -1,4 +1,4 @@
-# PSK / ALGORITHME 3000 — V4 engine
+# MEGA SKILLS 3000 — V4 engine
 
 iPhone-first Persian site plus a serverless engine on Vercel. Nothing here needs a laptop, PowerShell or a running local process.
 

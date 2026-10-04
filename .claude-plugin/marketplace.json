@@ -1,7 +1,7 @@
 {
   "name": "psk",
   "owner": { "name": "Puria Salimi" },
-  "metadata": { "description": "PSK plugins for Claude Code." },
+  "metadata": { "description": "MEGA SKILLS 3000 plugins for Claude Code." },
   "plugins": [
     {
       "name": "mega-skills-router",
