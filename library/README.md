@@ -8,8 +8,8 @@ Shared assets of the PSK project, kept in one place. Backend/frontend plan for e
 | PURIAS portfolio (Puria Salimi, Content Director) | `psk/public/puria/` | served at `/puria/`; static port of the original React/Vite source, same copy, photo (SHA-256 identical) and scroll choreography |
 | About page with founder section | `psk/public/about.html` | served at `/about` |
 | Skills pack (6 Persian business skills) | `library/skills/` | install: `bash library/install.sh [project-path]` |
-| Claude Code skills (3,000 + 6 + 3,000 GitHub = 6,006) | `.claude/skills/` | installed at project level; load in every Claude Code session opened on this repo |
-| GitHub skills (3,000, MIT) | `library/github-skills/` | collected from 50 repos with 5k+ stars; also active in `.claude/skills/`; see its README |
+| Mega Skills Router | `.claude/skills/mega-skills-router/` | the only auto-loaded skill: routes each request through 15 domain indexes and ~30,000 triggers to the relevant skills among all 5,986 (3,000 PSK + 6 pack + 2,980 GitHub), loading only those |
+| GitHub skills (2,980, MIT) | `library/github-skills/` | collected from 50 repos with 5k+ stars; available through the router; see its README |
 
 Original PURIAS hosting: https://purias-salimi.salimipuria.chatgpt.site/
 

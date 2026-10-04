@@ -1,4 +1,4 @@
 Source: https://github.com/Egonex-AI/Understand-Anything/tree/HEAD/understand-anything-plugin/skills/understand-dashboard
 Repository: Egonex-AI/Understand-Anything
 License: MIT (see ../_licenses/Egonex-AI__Understand-Anything__LICENSE)
-Only SKILL.md is included; companion files from the source folder are not.
+Companion files from the source folder are included (files over 1 MB and nested sub-skills excluded).
