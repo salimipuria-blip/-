@@ -1,7 +1,7 @@
 // Local stand-in for Vercel: serves public/ and maps /api/<name> to api/<name>.js handlers.
 import http from 'node:http';import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));const pub=path.join(root,'public');
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.svg':'image/svg+xml','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg'};
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.json':'application/json','.webp':'image/webp','.svg':'image/svg+xml','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webmanifest':'application/manifest+json'};
 const port=Number(process.env.PORT||3000);
 http.createServer(async(req,res)=>{
   const url=new URL(req.url,'http://x');
