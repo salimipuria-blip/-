@@ -1,0 +1,38 @@
+name: poors-ci
+
+on:
+  push:
+    paths:
+      - 'poors/**'
+      - '.github/workflows/poors-ci.yml'
+  pull_request:
+    paths:
+      - 'poors/**'
+      - '.github/workflows/poors-ci.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: poors-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: poors
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Zero npm dependencies: nothing to install.
+      - name: Syntax check
+        run: npm run check
+      - name: Tests (cloud API + router regression floor)
+        run: npm test
+      - name: Router evaluation report
+        run: node scripts/eval-router.mjs --show-holdout
