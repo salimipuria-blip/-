@@ -9,6 +9,7 @@ Shared assets of the PSK project, kept in one place. Backend/frontend plan for e
 | About page with founder section | `psk/public/about.html` | served at `/about` |
 | Skills pack (6 Persian business skills) | `library/skills/` | install: `bash library/install.sh [project-path]` |
 | Claude Code skills (3,000 + 6 = 3,006) | `.claude/skills/` | installed at project level; load in every Claude Code session opened on this repo |
+| GitHub skills (3,000, MIT) | `library/github-skills/` | collected from 50 repos with 5k+ stars; not auto-loaded, see its README |
 
 Original PURIAS hosting: https://purias-salimi.salimipuria.chatgpt.site/
 
