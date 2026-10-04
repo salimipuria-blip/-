@@ -44,7 +44,7 @@ test('success path: finished task is sent to poors_log_task with the publishable
  assert.equal(seen.length,1);
  const {url,opts}=seen[0];
  assert.equal(url,'https://example.supabase.co/rest/v1/rpc/poors_log_task');
- assert.equal(opts.method,'POST');assert.equal(opts.headers.apikey,'sb_publishable_test');assert.equal(opts.headers.Authorization,'Bearer sb_publishable_test');
+ assert.equal(opts.method,'POST');assert.equal(opts.headers.apikey,'sb_publishable_test');assert.equal(opts.headers.Authorization,undefined);
  assert.ok(opts.signal instanceof AbortSignal);
  const body=JSON.parse(opts.body);assert.equal(body.p_secret,SECRET);
  assert.equal(body.p_task.mode,'plan');assert.equal(body.p_task.status,'completed');assert.equal(body.p_task.input,'طراحی سه استوری اینستاگرام');

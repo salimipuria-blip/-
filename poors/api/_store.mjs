@@ -44,7 +44,8 @@ async function rpc(config,fn,args){
  let r;
  try{
   r=await fetch(`${config.url}/rest/v1/rpc/${fn}`,{method:'POST',
-   headers:{apikey:config.key,Authorization:`Bearer ${config.key}`,'Content-Type':'application/json',Accept:'application/json'},
+   // New sb_publishable_ keys go only in `apikey`; legacy anon JWTs are also sent as Bearer.
+   headers:{apikey:config.key,...(config.key.startsWith('eyJ')?{Authorization:`Bearer ${config.key}`}:{}),'Content-Type':'application/json',Accept:'application/json'},
    body:JSON.stringify(args),signal:AbortSignal.timeout(TIMEOUT_MS)});
  }catch(e){throw new StoreError(e?.name==='TimeoutError'||e?.name==='AbortError'?'STORE_TIMEOUT':'STORE_UNREACHABLE');}
  if(!r.ok)throw new StoreError(r.status===401||r.status===403?'STORE_DENIED':'STORE_HTTP_'+r.status,r.status);
