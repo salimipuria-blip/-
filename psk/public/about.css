@@ -57,3 +57,8 @@
 .about-cta>p:not(.eyebrow){font-size:13px}
 .about-hero-frame,.about-figure{border-radius:7px}
 }
+.founder-role{font:11px Arial,sans-serif;letter-spacing:.2em;color:#54caff;direction:ltr;text-align:right;margin:-18px 0 22px}
+.founder-roles{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.founder-roles li{border:1px solid #2a5793;border-radius:7px;padding:7px 12px;font-size:12px;color:#b9d6f5;background:#07152cd9}
+.founder-photo{border-radius:12px;overflow:hidden;border:1px solid #31579466;box-shadow:0 40px 90px #000b}
+.founder-photo img{width:100%;height:auto;display:block;aspect-ratio:4/5;object-fit:cover;object-position:52% 35%}
