@@ -1,45 +1,423 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="fa-IR" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050a16"><meta name="description" content="POORS 3000 — یک روایت تعاملی از معماری مهارت‌ها، مسیریابی و اجرای هوشمند؛ نمونه مفهومی سینماتیک.">
-<title>POORS / 3000 — The Intelligence Layer</title>
-<link rel="preload" as="image" href="assets/frame-04.webp">
-<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="engine-ui.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#04080F">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="POORS / ALGORITHME 3000 — رجیستری ۳۰۰۰ مهارت، مسیریاب قابل آزمایش و گزارشی صادقانه از آنچه امروز کار می‌کند.">
+<title>POORS / ALGORITHME 3000 — هوش را قابل دیدن می‌کنیم</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap">
+<link rel="preload" as="image" href="assets/frame-26.webp" fetchpriority="high">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="engine-ui.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div><div class="cursor-glow" aria-hidden="true"></div>
-<header class="topbar"><a href="#home" class="brand" aria-label="بازگشت به ابتدا"><span class="brand-icon">◈</span><span class="brand-mark">POORS<span class="brand-slash">/</span><b>3000</b></span></a><span class="topbar-mid">ALGORITHME / INTERACTIVE CONCEPT</span><nav class="toplinks" aria-label="ناوبری اصلی"><a href="#story">روایت</a><a href="#architecture">معماری</a><a href="#engineLab">موتور ۳۰۰۰</a><button id="openGallery" class="link-button">آرشیو تصاویر <span class="top-num">۳۰</span></button></nav><button class="mobile-menu" id="mobileMenu" aria-expanded="false" aria-label="باز کردن منو">☰</button></header>
-<div class="mobile-nav" id="mobileNav"><a href="#story">روایت</a><a href="#architecture">معماری</a><a href="#engineLab">موتور ۳۰۰۰</a><button id="openGalleryMobile">آرشیو ۳۰ تصویر</button></div>
-<div class="left-rail" aria-hidden="true"><span>POORS · DESIGN EXPERIMENT 001</span><i></i><span>SCROLL TO EXPLORE</span></div>
-<div class="scroll-progress" aria-hidden="true"><span id="progressFill"></span></div>
+<a class="skip" href="#problem">پرش به روایت</a>
+<div class="progress" aria-hidden="true"></div>
+<header class="bar">
+  <a class="brand" href="#top" aria-label="POORS / ALGORITHME 3000، بازگشت به ابتدا">
+    <span class="brand-dot" aria-hidden="true"></span>
+    <span class="brand-text" dir="ltr">POORS<span>/</span><b>ALGORITHME 3000</b></span>
+  </a>
+  <nav class="nav" id="nav" aria-label="بخش‌های روایت">
+    <a href="#problem">مسئله</a><a href="#idea">ایده</a><a href="#skills">رجیستری</a><a href="#architecture">معماری</a><a href="#evidence">شواهد</a><a href="#gallery">۳۰ فریم</a><a href="#roadmap">نقشه راه</a>
+  </nav>
+  <a class="bar-cta" href="#engineLab">موتور</a>
+  <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav"><span class="sr">منو</span><span class="menu-icon" aria-hidden="true"></span></button>
+</header>
+
 <main>
-<section id="home" class="hero observe" data-chapter="00">
-  <canvas id="spaceCanvas" class="space-canvas" aria-hidden="true"></canvas>
-  <div class="hero-ambient"></div>
-  <div class="hero-content">
-    <p class="eyebrow"><span class="live-dot"></span> APEX × MEGA SKILLS 3000 <span class="eyebrow-rule"></span> FIRST EXPLORATION</p>
-    <h1>هوش را<br><span class="outline-type">قابل دیدن</span><br>می‌کنیم<span class="period">.</span></h1>
-    <p class="hero-copy">۳۰۰۰ مهارت، یک هسته مرکزی و مسیری که از مسئله شروع می‌شود؛ نه از انتخاب ابزار. این، اولین روایت تعاملیِ یک سیستم در حال شکل‌گیری است.</p>
-    <div class="hero-actions"><a class="primary-btn" href="#story">ورود به روایت <span>↙</span></a><button class="ghost-btn" id="openArchitecture">کاوش معماری <span>↗</span></button></div>
-    <div class="hero-foot"><span>EXPERIENCE 01 / 10</span><span class="hero-foot-line"></span><span>SCROLL-DRIVEN NARRATIVE</span></div>
+<!-- HERO -->
+<section id="top" class="hero" aria-labelledby="heroTitle">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="kicker"><span dir="ltr">POORS · ALGORITHME 3000</span></p>
+      <h1 id="heroTitle">هوش را <span class="hl">قابل دیدن</span> می‌کنیم.</h1>
+      <p class="lede">یک رجیستری ۳۰۰۰ مهارتی، یک مسیریاب که همین حالا قابل آزمایش است، و گزارشی صادقانه از آنچه امروز کار می‌کند — و آنچه هنوز نه.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#problem">دیدن روایت <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-ghost" href="#engineLab">باز کردن موتور <span aria-hidden="true">←</span></a>
+      </div>
+      <dl class="facts">
+        <div><dt>مهارت نمایه‌شده</dt><dd>۳٬۰۰۰</dd></div>
+        <div><dt>تریگر اعلام‌شده</dt><dd>۱۵٬۰۰۰</dd></div>
+        <div><dt>بدنهٔ تأییدشده با <span dir="ltr">SHA-256</span></dt><dd>۳٬۰۰۰</dd></div>
+      </dl>
+    </div>
+    <div class="core" id="core" aria-hidden="true">
+      <svg class="core-rings" viewBox="0 0 400 400"><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="110"/><path d="M200 10a190 190 0 0 1 164 95"/><path d="M50 200a150 150 0 0 1 60-120"/></svg>
+      <div class="core-orb"><span dir="ltr">CORE</span></div>
+      <span class="core-node n1"></span><span class="core-node n2"></span><span class="core-node n3"></span><span class="core-node n4"></span>
+    </div>
   </div>
-  <div class="orb-stage" id="orbStage" aria-label="هسته مفهومی تعاملی و عامل‌های سیستم">
-    <svg class="network-lines" viewBox="0 0 650 650" aria-hidden="true"><circle cx="325" cy="325" r="242" class="path-circle"/><circle cx="325" cy="325" r="192" class="path-circle faint"/><circle cx="325" cy="325" r="142" class="path-circle faint"/><path d="M325 325 L120 170 M325 325 L512 142 M325 325 L584 348 M325 325 L475 527 M325 325 L191 524 M325 325 L72 361" class="network-path"/></svg>
-    <div class="orb-ring orb-ring-outer"></div><div class="orb-ring orb-ring-inner"></div>
-    <button id="orb" class="orb" aria-label="فعال‌سازی انیمیشن هسته، فقط نمایش مفهومی"><span class="orb-glow"></span><span class="orb-face"><span class="orb-symbol">◈</span><span class="orb-word">POORS</span><span class="orb-small">CORE / 3000</span></span></button>
-    <button class="node node-a" data-target="17" aria-label="مشاهده بخش مسئله">01 <span>PROBLEM</span></button><button class="node node-b" data-target="4" aria-label="مشاهده بخش معماری">02 <span>CORE</span></button><button class="node node-c" data-target="21" aria-label="مشاهده بخش مسیریابی">03 <span>ROUTER</span></button><button class="node node-d" data-target="10" aria-label="مشاهده بخش مدل‌ها">04 <span>MODELS</span></button><button class="node node-e" data-target="14" aria-label="مشاهده بخش اجرا">05 <span>RUNTIME</span></button><button class="node node-f" data-target="5" aria-label="مشاهده نقشه راه">06 <span>ROADMAP</span></button>
-    <div class="orb-stage-caption"><span class="caption-light"></span><span id="coreStatus">SYSTEM VISUALIZATION / STANDBY</span></div>
-  </div>
-  <div class="hero-bottom-right">NOT A LIVE AI ENGINE <span class="slashline"></span> UI PROTOTYPE V1</div>
+  <figure class="frame frame-hero">
+    <button class="frame-btn" type="button" data-open="frame-26.webp"><img src="assets/frame-26.webp" width="1672" height="941" loading="eager" fetchpriority="high" decoding="async" alt="اسلاید «موتور رجیستری Skill»: مکعب درخشان رجیستری مهارت در مرکز، پنج گام کشف، استانداردسازی، امنیت، مسیریابی و اجرا، و کاشی‌های حوزه‌هایی مثل طراحی، وب و بازاریابی."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۱ / ۳۰</span>هستهٔ روایت: رجیستری مهارت‌ها. امروز نمایه و مسیریابی ۳۰۰۰ مهارت واقعاً کار می‌کند؛ قرنطینه و بازرتبه‌بندی معنایی در این تصویر هنوز ساخته نشده‌اند.</figcaption>
+  </figure>
 </section>
-<section class="statement observe" id="story" data-chapter="01"><div class="statement-line"><span>01 / THE PREMISE</span><span>مشاهده ← تحلیل ← اجرا</span></div><p class="statement-label">THE SYSTEM, NOT THE TOOL</p><h2>ابزار بیشتر،<br><em>لزوماً</em> نتیجه بهتر نیست.</h2><p>زمانی یک سیستم معنا پیدا می‌کند که بداند کدام مهارت، در کدام لحظه و با چه زمینه‌ای باید وارد عمل شود.</p><div class="statement-orbit" aria-hidden="true"></div></section>
-<div id="chapters"></div>
-<section id="architecture" class="architecture observe" data-chapter="12"><p class="eyebrow">SYSTEM / INTERACTION MAP</p><h2>از تصویر تا<br><span>معماریِ قابل توسعه.</span></h2><p class="arch-intro">نمای پایین مدل مفهومی ارتباط ماژول‌هاست؛ اتصال واقعی مدل‌ها و اجرای خودکار وظایف هنوز به این نمونه افزوده نشده است.</p><div class="arch-map"><div class="arch-block root-block">POORS / CORE <small>درخواست، زمینه، اولویت</small></div><span class="arch-connector"></span><div class="arch-grid"><div class="arch-block">SKILL ROUTER<small>انتخاب مهارت</small></div><div class="arch-block">MEMORY<small>حفظ زمینه</small></div><div class="arch-block">MODEL LAYER<small>گزینش مدل</small></div><div class="arch-block">TOOL BRIDGE<small>اتصال ابزار</small></div></div><span class="arch-connector"></span><div class="arch-block result-block">VERIFIED OUTPUT <small>نتیجه، ارزیابی، بازخورد</small></div></div><button class="secondary-btn" id="architectureGallery">مرور تمام فریم‌های مرجع <span>↗</span></button></section>
+
+<!-- PROBLEM -->
+<section id="problem" class="chapter" aria-labelledby="problemTitle">
+  <p class="chapter-no"><span dir="ltr">01</span> مسئله</p>
+  <h2 id="problemTitle" data-reveal>ابزار بیشتر، <em>لزوماً</em> نتیجهٔ بهتر نیست.</h2>
+  <ul class="layers" data-reveal>
+    <li>هر ابزار، زمینهٔ خودش را می‌خواهد.</li>
+    <li>هر پروژه، توضیحِ دوباره از صفر.</li>
+    <li>هر تصمیم، جایی دیگر گم می‌شود.</li>
+  </ul>
+  <p class="body" data-reveal>مشکل کمبود ابزار نیست؛ این است که هیچ‌چیز نمی‌داند کدام مهارت، در کدام لحظه و با چه زمینه‌ای باید وارد کار شود.</p>
+  <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-17.webp"><img src="assets/frame-17.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «مسئلهٔ امروز»: آیکون ابزارهای پراکنده مثل ورد، اکسل، نوشن، اسلک، درایو و فیگما که با یک پیکان به یک پشتهٔ یکپارچه می‌رسند؛ کنار آن کارت‌های ابزارهای جدا، فرایند دستی، نبود حافظهٔ مشترک، اتلاف زمان و ریسک خطا."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۲ / ۳۰</span>پراکندگی، نه کمبود ابزار. هر پروژه زمینه را از نو توضیح می‌دهد و تصمیم‌ها بین ابزارها گم می‌شوند.</figcaption>
+  </figure>
+</section>
+
+<!-- IDEA -->
+<section id="idea" class="chapter" aria-labelledby="ideaTitle">
+  <p class="chapter-no"><span dir="ltr">02</span> ایده</p>
+  <h2 id="ideaTitle" data-reveal>یک دستور، <em>مسیر مشخص.</em></h2>
+  <p class="body" data-reveal>درخواست تو از چند حلقه می‌گذرد. کنار هر حلقه نوشته‌ایم امروز واقعاً چه وضعی دارد.</p>
+  <ol class="flow">
+    <li data-reveal><span class="flow-step">درخواست</span><span class="flow-text">به فارسی یا انگلیسی، همان‌طور که فکر می‌کنی.</span><span class="badge ok">کار می‌کند</span></li>
+    <li data-reveal><span class="flow-step">مسیریاب</span><span class="flow-text">از میان ۳۰۰۰ مهارت، مرتبط‌ترین‌ها را رتبه‌بندی می‌کند.</span><span class="badge ok">کار می‌کند</span></li>
+    <li data-reveal><span class="flow-step">مهارت انتخاب‌شده</span><span class="flow-text">متن کامل <span dir="ltr">SKILL.md</span> فقط اگر هشش درست باشد خوانده می‌شود.</span><span class="badge ok">کار می‌کند</span></li>
+    <li data-reveal><span class="flow-step">پیش‌نیاز اجرا</span><span class="flow-text">برای پاسخ نوشتاری، یک کلید مدل رایگان باید روی سرور تنظیم شده باشد.</span><span class="badge warn">مشروط به کلید</span></li>
+    <li data-reveal><span class="flow-step">اجرای ابزار</span><span class="flow-text">فایل، ترمینال، مرورگر و <span dir="ltr">MCP</span> هنوز اجرا نمی‌شوند.</span><span class="badge off">هنوز نه</span></li>
+    <li data-reveal><span class="flow-step">نتیجه</span><span class="flow-text">برنامهٔ کار با مهارت‌های تأییدشده؛ یا پاسخ مدل، اگر کلید باشد.</span><span class="badge ok">کار می‌کند</span></li>
+  </ol>
+  <div class="pair">
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-16.webp"><img src="assets/frame-16.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «راه‌حل پیشنهادی»: زنجیرهٔ هفت کارت از درخواست کاربر، عامل هماهنگ‌کننده، مسیریاب مهارت‌ها، زنجیرهٔ مهارت، ابزارها و MCP، ارائه‌دهندهٔ مدل تا اعتبارسنجی نتیجه."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۳ / ۳۰</span>مسیر کامل از درخواست تا نتیجه. سه حلقهٔ اول امروز واقعی‌اند؛ ابزارها و MCP هنوز اجرا نمی‌شوند و مدل فقط با کلید رایگانِ تنظیم‌شده روی سرور پاسخ می‌دهد.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-01.webp"><img src="assets/frame-01.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Skill Chaining»: چهار مکعب شیشه‌ای ایده، مهارت، عامل و نتیجه که مثل زنجیر به هم وصل‌اند، همراه با پنج گام تحلیل، انتخاب، اجرا، بررسی و نتیجه."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۴ / ۳۰</span>زنجیر کردن مهارت‌ها، طرح مفهومی است. امروز موتور چند مهارت مرتبط را پیدا و برنامهٔ کار را می‌سازد؛ اجرای خودکار زنجیره هنوز نیست.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="chapter" aria-labelledby="skillsTitle">
+  <p class="chapter-no"><span dir="ltr">03</span> رجیستری</p>
+  <h2 id="skillsTitle" data-reveal>رجیستری <em>۳۰۰۰ مهارت.</em></h2>
+  <p class="body" data-reveal>هر مهارت یک شناسه، یک حوزه و پنج تریگر دارد: روی‌هم ۱۵٬۰۰۰ تریگر، بدون هیچ تریگر مشترک بین دو مهارت. هر ۳۰۰۰ فایل <span dir="ltr">SKILL.md</span> همراه سایت است و پیش از استفاده با <span dir="ltr">SHA-256</span> سنجیده می‌شود: ۲٬۹۹۰ فایل دقیقاً با شناسهٔ رجیستری یکی‌اند و ۱۰ فایل که سرصفحه‌شان به‌صورت مکانیکی ترمیم شده، فقط از راه فهرست مجاز هش پذیرفته می‌شوند. فایل تغییرکرده رد می‌شود.</p>
+  <div class="split">
+    <div class="domains" data-reveal>
+      <h3>پراکندگی در ۱۵ حوزه</h3>
+      <ol class="bars">
+        <li style="--v:438"><span>سفر و طبیعت‌گردی</span><b>۴۳۸</b></li>
+        <li style="--v:354"><span>کسب‌وکار و فروش</span><b>۳۵۴</b></li>
+        <li style="--v:329"><span>پرامپت و نیازسنجی</span><b>۳۲۹</b></li>
+        <li style="--v:248"><span>دانش و پژوهش</span><b>۲۴۸</b></li>
+        <li style="--v:236"><span>ایجنت و اتوماسیون</span><b>۲۳۶</b></li>
+        <li style="--v:233"><span>شبکه‌های اجتماعی</span><b>۲۳۳</b></li>
+        <li style="--v:229"><span>توسعهٔ مهارت</span><b>۲۲۹</b></li>
+        <li style="--v:130"><span>توسعهٔ وب</span><b>۱۳۰</b></li>
+        <li style="--v:129"><span>طراحی گرافیک</span><b>۱۲۹</b></li>
+        <li style="--v:129"><span>عمومی</span><b>۱۲۹</b></li>
+        <li style="--v:124"><span>داده و صفحه‌گسترده</span><b>۱۲۴</b></li>
+        <li style="--v:112"><span>ویدئو با هوش مصنوعی</span><b>۱۱۲</b></li>
+        <li style="--v:108"><span>طراحی محصول</span><b>۱۰۸</b></li>
+        <li style="--v:103"><span>تصویر با هوش مصنوعی</span><b>۱۰۳</b></li>
+        <li style="--v:98"><span>تولید محتوا</span><b>۹۸</b></li>
+      </ol>
+      <p class="note">منبع: <span dir="ltr">data/skills-registry.json</span></p>
+    </div>
+    <div class="finder" data-reveal>
+      <h3><label for="skillFilter">نمونه‌هایی از رجیستری</label></h3>
+      <input id="skillFilter" class="field" type="search" placeholder="مثلاً: زعفران، ریلز، اکسل" autocomplete="off" aria-describedby="skillCount">
+      <p class="note" id="skillCount" aria-live="polite">۲۴ نمونهٔ واقعی از ۳۰۰۰ مهارت. جست‌وجوی کامل در کنسول موتور.</p>
+      <ul class="skill-list" id="skillList">
+        <li><code dir="ltr">booking-form-builder</code><span>فرم رزرو تور با تاریخ شمسی</span></li>
+        <li><code dir="ltr">audio-loudnorm-video</code><span>نرمال‌سازی بلندی صدای ویدئو</span></li>
+        <li><code dir="ltr">agent-handoff-prompts</code><span>پرامپت تحویل کار بین ایجنت‌ها</span></li>
+        <li><code dir="ltr">prompt-regression-tester</code><span>تست رگرسیون بعد از هر تغییر پرامپت</span></li>
+        <li><code dir="ltr">excel-gantt-chart</code><span>گانت‌چارت پروژه در اکسل</span></li>
+        <li><code dir="ltr">persian-digits-standardizer</code><span>یکدست‌سازی اعداد فارسی و لاتین</span></li>
+        <li><code dir="ltr">blog-outline-builder-fa</code><span>ساختار مقالهٔ سئومحور فارسی</span></li>
+        <li><code dir="ltr">reels-scripts-batch</code><span>تولید دسته‌ای سناریوی ریلز</span></li>
+        <li><code dir="ltr">brand-kit-generator</code><span>کیت برند و هویت بصری</span></li>
+        <li><code dir="ltr">herbal-tea-box-design</code><span>طراحی جعبهٔ دمنوش با حس طبیعت</span></li>
+        <li><code dir="ltr">saffron-label-designer</code><span>لیبل بسته‌بندی زعفران</span></li>
+        <li><code dir="ltr">poster-generator-skill</code><span>طراحی پوستر</span></li>
+        <li><code dir="ltr">filter-sort-pattern-kit</code><span>الگوهای فیلتر و مرتب‌سازی فروشگاهی</span></li>
+        <li><code dir="ltr">rtl-chart-components</code><span>کامپوننت نمودار راست‌چین</span></li>
+        <li><code dir="ltr">anti-spam-comment-filter</code><span>فیلتر خودکار کامنت اسپم</span></li>
+        <li><code dir="ltr">newsletter-archive-parser</code><span>تبدیل آرشیو خبرنامه به مقاله</span></li>
+        <li><code dir="ltr">allowed-tools-scoping</code><span>محدود کردن ابزار هر مهارت برای امنیت</span></li>
+        <li><code dir="ltr">agent-handoff-protocol</code><span>پروتکل تحویل کار بین ایجنت‌ها با زمینهٔ کامل</span></li>
+        <li><code dir="ltr">finance-bookkeeper-agent</code><span>دسته‌بندی تراکنش و سند حسابداری ساده</span></li>
+        <li><code dir="ltr">qa-test-generator-agent</code><span>سناریوی تست از روی استوری</span></li>
+        <li><code dir="ltr">restaurant-nps-reporter</code><span>گزارش رضایت مشتری برای رستوران</span></li>
+        <li><code dir="ltr">altitude-sickness-damavand</code><span>آمادگی ارتفاع برای صعود دماوند</span></li>
+        <li><code dir="ltr">gmail-mbox-thread-rebuilder</code><span>بازسازی رشته‌ایمیل‌ها از فایل mbox</span></li>
+        <li><code dir="ltr">product-photo-prompt-kit</code><span>پرامپت عکاسی محصول</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="trio">
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-06.webp"><img src="assets/frame-06.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «امنیت Skillها»: سپر درخشان روی پشتهٔ اسکن، تأیید، بازبینی و تصویب، با کارت‌های SHA-256، اسکن امنیتی، بررسی تکراری، قرنطینه و جریان تأیید."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۵ / ۳۰</span>از این تصویر، SHA-256 واقعی است: هر ۳۰۰۰ بدنهٔ مهارت قبل از استفاده هش می‌شوند. اسکن بدافزار، قرنطینه و تأیید انسانی هنوز پیاده نشده‌اند.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-07.webp"><img src="assets/frame-07.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «امنیت و حاکمیت»: سپر آبی با پنل ردپای بازبینی، کارت هش SHA-256 و جریان اسکن، بازبینی و تأیید؛ پایین کارت‌های اسکن امنیتی، قرنطینه و عدم نمایش توکن و رمز."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۶ / ۳۰</span>کلیدها فقط در متغیرهای محیطی سرور می‌مانند و به مرورگر نمی‌رسند؛ فایل مهارتِ تغییرکرده رد می‌شود. ردپای بازبینی و جریان تأیید در این تصویر هنوز طرح‌اند.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-03.webp"><img src="assets/frame-03.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Lazy Loading»: قیف شیشه‌ای که فقط چند کاشی مهارت را به جعبهٔ هسته می‌فرستد، با مقایسهٔ «بارگذاری کامل» و «بارگذاری هدفمند»."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۷ / ۳۰</span>فقط آنچه لازم است. در حالت پاسخ، تنها سه مهارتِ برتر و تأییدشده همراه درخواست به مدل فرستاده می‌شوند.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- ROUTER -->
+<section id="router" class="chapter" aria-labelledby="routerTitle">
+  <p class="chapter-no"><span dir="ltr">04</span> مسیریاب</p>
+  <h2 id="routerTitle" data-reveal>مسیریابی <em>قابل آزمایش.</em></h2>
+  <p class="body" data-reveal>مسیریاب واژگانی است: به واژه‌های کمیاب‌تر وزن بیشتری می‌دهد (<span dir="ltr">IDF</span>)، واژه‌های فارسی را به معادل انگلیسی پل می‌زند و پسوندها را حذف می‌کند تا «پوسترها» و «پوستر» یکی شوند. پایین همین صفحه می‌توانی آن را روی سرور واقعی اجرا کنی؛ هر رویدادی که می‌بینی از پاسخ واقعی سرور می‌آید، نه از انیمیشن.</p>
+  <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-21.webp"><img src="assets/frame-21.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «مسیریابی هوشمند»: مکعب موتور مسیریابی که درخواست، زمینه، هدف، پایگاه مهارت و قوانین را می‌گیرد؛ زیر آن مراحل تحلیل واژگانی، معنایی، برچسب، انتخاب K برتر و بازرتبه‌بندی."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۸ / ۳۰</span>مسیریاب امروز واژگانی است: وزن‌دهی IDF با پل فارسی به انگلیسی و ریشه‌یابی پسوندها. مراحل معنایی و بازرتبه‌بندیِ این تصویر هنوز ساخته نشده‌اند.</figcaption>
+  </figure>
+  <p class="note center" data-reveal>کنسول به کلید دسترسی سرور نیاز دارد. بدون کلید، فقط وضعیت «نامعتبر» را نشان می‌دهد؛ چیزی شبیه‌سازی نمی‌شود.</p>
+</section>
+
 <section class="engine-lab" id="engineLab" aria-labelledby="engineHeading"><div class="engine-inner"><p class="engine-kicker">ALGORITHME / ENGINE V3 · VERCEL CLOUD ROUTING</p><h2 class="engine-head" id="engineHeading">از نمایش مفهومی <em>به موتور قابل آزمایش.</em></h2><p class="engine-copy">درخواستت را بنویس تا موتور، مهارت‌های مرتبط را از رجیستری واقعی ۳۰۰۰ مهارت پیدا کند. این بخش، برخلاف گوی نمایشی بالا، به API ابری وصل می‌شود؛ هر درخواست در همان فراخوانی پردازش و پاسخ داده می‌شود. پاسخ هوش مصنوعی تنها زمانی فعال می‌شود که محتوای مهارت و یک مدل رایگان واقعاً متصل باشند.</p><div class="engine-panel"><div class="engine-bar"><span class="engine-pill" id="engineOnline" data-state="error">CONNECTING…</span><span class="engine-meta" id="engineOverview">بررسی اتصال سرور…</span></div><label class="engine-label" for="engineToken">کلید دسترسی (فقط برای سرور محافظت‌شده)</label><input class="engine-token" id="engineToken" type="password" autocomplete="off" placeholder="کلید خصوصی تنظیم‌شده در Vercel"><label class="engine-label" for="engineInput">درخواستت چیست؟</label><textarea id="engineInput" class="engine-input" maxlength="4000" placeholder="مثلاً: برای پروژه عباسی سه استوری درباره طراحی یک کافه بنویس و مسیر کار را مشخص کن"></textarea><div class="engine-controls"><button class="engine-action" id="engineRun" disabled>اجرای واقعی مسیریابی ←</button><label class="engine-option"><input type="checkbox" id="engineMode"> پاسخ با مدل رایگانِ متصل (نیازمند محتوای مهارت)</label></div><p class="engine-small">حالت پیش‌فرض، اجرای مسیریابی و تهیه نقشه کار است؛ بدون ادعای اجرای ابزار یا تولید تصویر. در نبود ظرفیت رایگان، حالت مدل متوقف می‌شود و به مسیر پولی منتقل نمی‌شود.</p><p class="engine-status" id="engineStatus" role="status" aria-live="polite"></p><div class="engine-results"><div class="engine-result"><h3>مراحل پردازش درخواست</h3><ol id="engineEvents"></ol></div><div class="engine-result"><h3>مهارت‌های انتخاب‌شده</h3><ol id="engineSkills"></ol></div><div class="engine-result" style="grid-column:1/-1"><h3>خروجی و نتیجه</h3><pre id="engineResponse">هنوز وظیفه‌ای اجرا نشده است.</pre></div></div></div></div></section>
-<section id="ending" class="ending observe" data-chapter="13"><p class="eyebrow">POORS / THE NEXT CHAPTER</p><h2>این پایان ارائه نیست.<br><span>شروع یک محصول است.</span></h2><p>این نسخه، تصاویر اصلی شما را در یک روایت وب زنده کنار منطق بصری APEX قرار داده؛ فاز بعدی، اتصال هسته به داده و اجرای واقعی عامل‌هاست.</p><div class="end-actions"><a href="#home" class="primary-btn">بازگشت به هسته <span>↑</span></a><button id="endingGallery" class="ghost-btn">دیدن هر ۳۰ تصویر ↗</button></div><span class="end-index">POORS — 3000 / PROTOTYPE 001</span></section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture" class="chapter" aria-labelledby="archTitle">
+  <p class="chapter-no"><span dir="ltr">05</span> معماری</p>
+  <h2 id="archTitle" data-reveal>از دستور <em>تا نتیجه.</em></h2>
+  <p class="body" data-reveal>هشت جزء، جدا از هم. روی هر کدام بزن تا ببینی چیست، کجاست و امروز چه وضعی دارد.</p>
+  <div class="arch" data-reveal>
+    <details class="node"><summary><span class="dot ok"></span><span class="node-t">رابط کاربری</span><small dir="ltr">public/</small></summary><p>همین صفحه و کنسول موتور. ایستا، بدون فریم‌ورک؛ کلید دسترسی فقط در فیلد ورودی می‌ماند و ذخیره نمی‌شود.</p></details>
+    <details class="node"><summary><span class="dot ok"></span><span class="node-t">دروازهٔ <span dir="ltr">API</span></span><small dir="ltr">api/*.js</small></summary><p>سه تابع Vercel: <span dir="ltr">health</span>، <span dir="ltr">skills</span> و <span dir="ltr">tasks</span>. همه با توکن <span dir="ltr">Bearer</span> محافظت می‌شوند و بدون پیکربندی، بسته می‌مانند.</p></details>
+    <details class="node"><summary><span class="dot ok"></span><span class="node-t">مسیریاب</span><small dir="ltr">engine/router.mjs</small></summary><p>رتبه‌بندی واژگانی با وزن <span dir="ltr">IDF</span>، پل فارسی به انگلیسی و ریشه‌یابی پسوند. در هر شروع سرد یک بار بارگذاری می‌شود.</p></details>
+    <details class="node"><summary><span class="dot ok"></span><span class="node-t">رجیستری و بدنهٔ مهارت‌ها</span><small dir="ltr">data/</small></summary><p>۳۰۰۰ مهارت، ۱۵٬۰۰۰ تریگر و ۳۰۰۰ فایل <span dir="ltr">SKILL.md</span> با بررسی هش، سقف حجم و جلوگیری از پیمایش مسیر. فایل‌ها داده‌اند و هرگز اجرا نمی‌شوند.</p></details>
+    <details class="node"><summary><span class="dot warn"></span><span class="node-t">ارائه‌دهندگان مدل</span><small dir="ltr">engine/providers.mjs</small></summary><p>فقط مدل‌های رایگان با جابه‌جایی خودکار. فقط وقتی فعال است که کلیدی روی سرور تنظیم شده باشد؛ مسیر پولی در کد وجود ندارد.</p></details>
+    <details class="node"><summary><span class="dot off"></span><span class="node-t">ابزارها و <span dir="ltr">MCP</span></span><small>ساخته نشده</small></summary><p>هیچ فایل، ترمینال، مرورگر یا سرور <span dir="ltr">MCP</span> اجرا نمی‌شود. متن مهارت‌ها نمی‌تواند ابزاری فعال کند.</p></details>
+    <details class="node"><summary><span class="dot ok"></span><span class="node-t">محیط اجرا</span><small>توابع بدون‌حالت</small></summary><p>هر درخواست در همان یک فراخوانی (حداکثر ۶۰ ثانیه) کامل می‌شود. هیچ فرایند همیشه‌روشن یا لپ‌تاپی لازم نیست.</p></details>
+    <details class="node"><summary><span class="dot off"></span><span class="node-t">ذخیره‌سازی و تاریخچه</span><small>ساخته نشده</small></summary><p>هیچ تاریخچهٔ وظیفه یا حساب کاربری ذخیره نمی‌شود. وقتی صفحه را ببندی، نتیجه هم می‌رود.</p></details>
+    <details class="node"><summary><span class="dot ok"></span><span class="node-t">راستی‌آزمایی</span><small dir="ltr">npm test</small></summary><p>بررسی هش هر مهارت در زمان اجرا، و آزمون‌های خودکار برای احراز هویت، شمارش‌ها، مسیریابی فارسی و رد فایل دست‌کاری‌شده.</p></details>
+  </div>
+  <p class="legend" data-reveal><span><i class="dot ok"></i>ساخته و آزموده</span><span><i class="dot warn"></i>مشروط به پیکربندی</span><span><i class="dot off"></i>هنوز ساخته نشده</span></p>
+  <div class="pair">
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-04.webp"><img src="assets/frame-04.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید نمای کلی پلتفرم: مکعب «AI Operating System» روی لایه‌های مدل، ابزار، مهارت و ارکستراسیون، وصل به کاشی‌های Skills، MCP، Models، Python، Node و Git، همراه با کارت عامل هماهنگ‌کننده."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۰۹ / ۳۰</span>نقشهٔ لایه‌ها، نه وضعیت آن‌ها. از این لایه‌ها امروز رابط، مسیریاب، رجیستری و آداپتور مدل رایگان ساخته شده‌اند؛ عامل هماهنگ‌کننده، MCP و اجرای Python و Git در این سایت وجود ندارند.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-11.webp"><img src="assets/frame-11.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «ابزارها و MCP»: مکعب مرکزی وصل به کاشی‌های فایل، Git، ترمینال، مرورگر، ابزار محلی و سرور MCP."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۰ / ۳۰</span>لایهٔ ابزار هنوز خاموش است: موتور هیچ فایل، ترمینال، مرورگر یا سرور MCP را اجرا نمی‌کند و ادعای اجرای ابزار هم نمی‌کند.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section id="models" class="chapter" aria-labelledby="modelsTitle">
+  <p class="chapter-no"><span dir="ltr">06</span> مدل‌ها</p>
+  <h2 id="modelsTitle" data-reveal>مدل‌ها <em>و اجرا.</em></h2>
+  <p class="body" data-reveal>پاسخ مدل، سهمیهٔ رایگان و اجازهٔ اجرا سه یکپارچه‌سازی جدا هستند. داشتن یکی، دیگری را ثابت نمی‌کند.</p>
+  <div class="states" role="table" aria-label="مقایسهٔ قابلیت‌ها" data-reveal>
+    <div role="row" class="states-head"><span role="columnheader">قابلیت</span><span role="columnheader">وضعیت</span><span role="columnheader">توضیح</span></div>
+    <div role="row"><span role="cell">برنامهٔ کار</span><span role="cell"><b class="badge ok">فعال</b></span><span role="cell">مسیر به‌همراه متن تأییدشدهٔ مهارت‌های منتخب؛ بدون نیاز به مدل.</span></div>
+    <div role="row"><span role="cell">پاسخ با مدل رایگان</span><span role="cell"><b class="badge warn">مشروط</b></span><span role="cell">فقط با کلید رایگان روی سرور (<span dir="ltr">Groq</span>، <span dir="ltr">Cerebras</span>، <span dir="ltr">Google AI Studio</span>، <span dir="ltr">OpenRouter :free</span>). بدون کلید، خطای صریح <code dir="ltr">NO_PROVIDER_CONFIGURED</code> برمی‌گردد.</span></div>
+    <div role="row"><span role="cell">جابه‌جایی بین ارائه‌دهندگان</span><span role="cell"><b class="badge ok">در کد</b></span><span role="cell">با خطای سهمیه یا سرور، ارائه‌دهندهٔ رایگان بعدی؛ در پایان توقف، نه مسیر پولی.</span></div>
+    <div role="row"><span role="cell">اجرای ابزار و <span dir="ltr">MCP</span></span><span role="cell"><b class="badge off">غیرفعال</b></span><span role="cell">ساخته نشده؛ هیچ ادعای اجرا نمی‌شود.</span></div>
+    <div role="row"><span role="cell">تولید تصویر</span><span role="cell"><b class="badge off">غیرفعال</b></span><span role="cell">ساخته نشده.</span></div>
+    <div role="row"><span role="cell">حساب و نشست امن</span><span role="cell"><b class="badge plan">برنامه‌ریزی‌شده</b></span><span role="cell">فعلاً کلید دسترسی دستی وارد می‌شود؛ جایگزینی با کوکی امن در نقشهٔ راه است.</span></div>
+  </div>
+  <p class="note" data-reveal>رایگان بودن هر ارائه‌دهنده به شرایط فعلی خودش بستگی دارد. تا آزمون زنده انجام نشده، قول «بدون هزینه» نمی‌دهیم.</p>
+  <div class="grid4">
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-10.webp"><img src="assets/frame-10.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «استراتژی مدل‌ها و Providerها»: سه ردیف Qwen و Hugging Face، Provider جایگزین و Codex، و مکعب مرکزی با کاشی‌های جایگزینی خودکار، کنترل هزینه و تعویض مدل."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۱ / ۳۰</span>انتزاع ارائه‌دهنده و جابه‌جایی خودکار واقعاً پیاده شده‌اند، اما با ارائه‌دهندگان رایگان دیگر: Groq، Cerebras، Google AI Studio و مدل‌های ‎:free‎ در OpenRouter. هیچ مسیر پولی‌ای وجود ندارد.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-20.webp"><img src="assets/frame-20.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Qwen / Hugging Face»: دو ابر درخشان با نام Qwen و Hugging Face روی یک سکو، با کاشی‌های تولید متن، کد، تصویر و Embeddings."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۲ / ۳۰</span>طرح اولیهٔ مسیر رایگان. Qwen و Hugging Face امروز وصل نیستند؛ رایگان بودن هر ارائه‌دهنده هم به شرایط فعلی خودش بستگی دارد و بدون آزمون زنده قول داده نمی‌شود.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-09.webp"><img src="assets/frame-09.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Codex»: مکعب درخشان با آیکون مغز و نوار هشدار «وضعیت فعلی: محدودیت موقت سهمیه»."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۳ / ۳۰</span>Codex به این سایت وصل نیست. این اسلاید یادآوری می‌کند که مدل، سهمیه و مجوز اجرا سه یکپارچه‌سازی جدا هستند.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-24.webp"><img src="assets/frame-24.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Claude Code / Proxy»: مسیر سه‌بخشی Claude Code، Proxy و Codex با هشدارهای Remote Bridge: Forbidden و Codex: Usage Limit."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۴ / ۳۰</span>تجربهٔ مسیر قبلی و درس‌هایش، نه بخشی از موتور فعلی. موتور امروز بدون پل راه دور و بدون فرایند همیشه‌روشن، روی توابع Vercel اجرا می‌شود.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="chapter" aria-labelledby="projectsTitle">
+  <p class="chapter-no"><span dir="ltr">07</span> کاربرد</p>
+  <h2 id="projectsTitle" data-reveal>کاربرد در <em>پروژهٔ واقعی.</em></h2>
+  <p class="body" data-reveal>سه نمونه. هر کدام فقط «برنامهٔ نمونه» است، نه کاری که انجام شده باشد. خودت در کنسول امتحان کن.</p>
+  <div class="cases">
+    <article class="case" data-reveal>
+      <p class="case-tag">طراحی · <span class="badge ok">مسیر آزموده در <span dir="ltr">QA</span></span></p>
+      <h3>پوستر اینستاگرام برای کافه</h3>
+      <p class="case-q">«برای کافه‌ام یک پوستر اینستاگرام طراحی کن»</p>
+      <details><summary>موتور چه برگرداند؟</summary><p>در آزمون ثبت‌شده، سه مهارت برتر: <code dir="ltr">poster-generator-skill</code>، <code dir="ltr">nuts-poster-analyzer</code>، <code dir="ltr">saffron-poster-analyzer</code> — هر سه با بدنهٔ تأییدشده. بدون کلید مدل، خروجی همین برنامه است؛ تصویری ساخته نمی‌شود.</p></details>
+      <button class="btn btn-small" type="button" data-try="برای کافه‌ام یک پوستر اینستاگرام طراحی کن">امتحان در کنسول</button>
+    </article>
+    <article class="case" data-reveal>
+      <p class="case-tag">محتوا · <span class="badge plan">برنامهٔ نمونه</span></p>
+      <h3>سناریوی ریلز معرفی</h3>
+      <p class="case-q">«سه سناریوی ریلز برای معرفی یک کافه بنویس»</p>
+      <details><summary>انتظار چیست؟</summary><p>مهارت‌هایی مثل <code dir="ltr">reels-scripts-batch</code> در رجیستری هستند؛ اینکه مسیریاب دقیقاً کدام را انتخاب کند را در کنسول ببین. متن سناریو فقط در حالت پاسخ و با کلید مدل نوشته می‌شود.</p></details>
+      <button class="btn btn-small" type="button" data-try="سه سناریوی ریلز برای معرفی یک کافه بنویس">امتحان در کنسول</button>
+    </article>
+    <article class="case" data-reveal>
+      <p class="case-tag">پژوهش · <span class="badge plan">برنامهٔ نمونه</span></p>
+      <h3>از آرشیو خبرنامه به مقاله</h3>
+      <p class="case-q">«آرشیو خبرنامه‌هایم را به یک مقالهٔ مرتب تبدیل کن»</p>
+      <details><summary>انتظار چیست؟</summary><p><code dir="ltr">newsletter-archive-parser</code> یکی از نامزدهای رجیستری است. موتور فایل تو را نمی‌خواند (اجرای ابزار نداریم)؛ فقط مسیر کار و دستورالعمل مهارت را می‌دهد.</p></details>
+      <button class="btn btn-small" type="button" data-try="آرشیو خبرنامه‌هایم را به یک مقالهٔ مرتب تبدیل کن">امتحان در کنسول</button>
+    </article>
+  </div>
+  <div class="pair">
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-02.webp"><img src="assets/frame-02.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «خلاصهٔ مدیریتی»: پنج کارت مزیت مثل افزایش سرعت و کاهش هزینهٔ آزمون و خطا، کنار مکعب مرکزی و نمودارهای تزئینی."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۵ / ۳۰</span>خلاصهٔ ارزش پروژه. اعداد نمودارهای این تصویر (مثل ۷۲٪ و ۸۶٪) تزئینی‌اند و اندازه‌گیری نشده‌اند.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-22.webp"><img src="assets/frame-22.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «اثر تجاری و تصمیم مدیریتی»: نمودار ستونی سه‌بعدی رو به بالا و کارت‌های سرعت بالاتر، هزینهٔ کمتر، کنترل بیشتر و آمادگی برای اتوماسیون."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۶ / ۳۰</span>پرسش تصمیم: چرا ادامه دهیم؟ نمودار، روند مطلوب را نشان می‌دهد، نه نتیجهٔ اندازه‌گیری‌شده.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section id="evidence" class="chapter" aria-labelledby="evidenceTitle">
+  <p class="chapter-no"><span dir="ltr">08</span> شواهد</p>
+  <h2 id="evidenceTitle" data-reveal>آنچه <em>امروز</em> کار می‌کند.</h2>
+  <div class="evidence" data-reveal>
+    <p class="evidence-src">منبع: <span dir="ltr">docs/QA_REPORT.md</span> و <span dir="ltr">docs/FEATURE_STATUS.json</span> · آخرین بررسی: <time datetime="2026-10-04">۱۲ مهر ۱۴۰۵</time></p>
+    <div class="evidence-cols">
+      <div>
+        <h3><span class="dot ok"></span>آزموده و کار می‌کند</h3>
+        <ul>
+          <li>نمایهٔ ۳۰۰۰ مهارت و ۱۵٬۰۰۰ تریگر</li>
+          <li>بررسی <span dir="ltr">SHA-256</span> هر ۳۰۰۰ بدنه (۲٬۹۹۰ دقیق + ۱۰ ترمیم‌شده در فهرست مجاز)</li>
+          <li>مسیریابی فارسی و انگلیسی و حالت برنامه</li>
+          <li>رد شدن فایل مهارتِ دست‌کاری‌شده</li>
+          <li>محافظت با توکن؛ بسته ماندن سرور بدون پیکربندی</li>
+          <li>شکست صادقانهٔ حالت پاسخ وقتی کلید مدلی نیست</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="dot off"></span>هنوز نه</h3>
+        <ul>
+          <li>تاریخچهٔ وظایف و ذخیره‌سازی</li>
+          <li>حساب کاربری و نشست کوکی</li>
+          <li>اجرای ابزار و <span dir="ltr">MCP</span></li>
+          <li>تولید تصویر</li>
+          <li>فراخوانی زندهٔ یک ارائه‌دهندهٔ رایگان</li>
+          <li>آزمون روی سافاریِ آیفون واقعی</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">وضعیت زندهٔ سرور را کنسول موتور با کلید دسترسی از <code dir="ltr">/api/health</code> می‌خواند. این صفحه عدد زمان کارکرد، کارایی مدل یا تعداد عامل فعال نشان نمی‌دهد، چون چنین اندازه‌گیری‌ای وجود ندارد.</p>
+  </div>
+  <div class="pair">
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-19.webp"><img src="assets/frame-19.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «وضعیت واقعی پروژه»: کاشی‌های وضعیت با نقطه‌های سبز، زرد و قرمز برای Node 22، Python 3.11، uv، Git، Claude Code، Codex، Proxy و Remote Bridge."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۷ / ۳۰</span>وضعیت محیط توسعهٔ قبلیِ مالک، نه این سرور. وضعیت این سایت در جدول کنار همین بخش آمده است.</figcaption>
+  </figure>
+    <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-14.webp"><img src="assets/frame-14.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «اجرای Local»: لپ‌تاپ با عبارت Local Runtime روی پشتهٔ محیط، پکیج‌ها، مخازن، مهارت‌ها و تست، و کاشی‌های Python، Node، uv و Git با تیک سبز."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۸ / ۳۰</span>نسخهٔ فعلی به اجرای محلی یا لپ‌تاپ نیاز ندارد؛ همه چیز روی توابع بدون‌حالت Vercel است و بررسی‌ها با npm test اجرا می‌شوند.</figcaption>
+  </figure>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="chapter" aria-labelledby="galleryTitle">
+  <p class="chapter-no"><span dir="ltr">09</span> گالری</p>
+  <h2 id="galleryTitle" data-reveal>۳۰ فریم، <em>یک داستان.</em></h2>
+  <p class="body" data-reveal>همهٔ اسلایدهای پروژه به ترتیب روایت. ۱۱ فریم نسخهٔ تقریباً یکسانِ فریم‌های روایت‌اند و جدا آمده‌اند. روی هر فریم بزن تا تمام‌صفحه باز شود؛ با کلیدهای جهت یا کشیدن انگشت جابه‌جا شو و با <kbd dir="ltr">Esc</kbd> ببند.</p>
+  <button class="btn btn-primary" type="button" data-open="frame-26.webp">نمایش پشت‌سرهم از فریم اول</button>
+  <h3 class="grid-title">فریم‌های روایت <span>(۱۹)</span></h3>
+  <ol class="thumbs" data-seq><li><button class="thumb" type="button" data-open="frame-26.webp" data-caption="هستهٔ روایت: رجیستری مهارت‌ها. امروز نمایه و مسیریابی ۳۰۰۰ مهارت واقعاً کار می‌کند؛ قرنطینه و بازرتبه‌بندی معنایی در این تصویر هنوز ساخته نشده‌اند."><img src="assets/frame-26.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «موتور رجیستری Skill»: مکعب درخشان رجیستری مهارت در مرکز، پنج گام کشف، استانداردسازی، امنیت، مسیریابی و اجرا، و کاشی‌های حوزه‌هایی مثل طراحی، وب و بازاریابی." style="object-position:72% 50%"><span class="thumb-no">۰۱</span></button></li><li><button class="thumb" type="button" data-open="frame-17.webp" data-caption="پراکندگی، نه کمبود ابزار. هر پروژه زمینه را از نو توضیح می‌دهد و تصمیم‌ها بین ابزارها گم می‌شوند."><img src="assets/frame-17.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «مسئلهٔ امروز»: آیکون ابزارهای پراکنده مثل ورد، اکسل، نوشن، اسلک، درایو و فیگما که با یک پیکان به یک پشتهٔ یکپارچه می‌رسند؛ کنار آن کارت‌های ابزارهای جدا، فرایند دستی، نبود حافظهٔ مشترک، اتلاف زمان و ریسک خطا." style="object-position:70% 50%"><span class="thumb-no">۰۲</span></button></li><li><button class="thumb" type="button" data-open="frame-16.webp" data-caption="مسیر کامل از درخواست تا نتیجه. سه حلقهٔ اول امروز واقعی‌اند؛ ابزارها و MCP هنوز اجرا نمی‌شوند و مدل فقط با کلید رایگانِ تنظیم‌شده روی سرور پاسخ می‌دهد."><img src="assets/frame-16.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «راه‌حل پیشنهادی»: زنجیرهٔ هفت کارت از درخواست کاربر، عامل هماهنگ‌کننده، مسیریاب مهارت‌ها، زنجیرهٔ مهارت، ابزارها و MCP، ارائه‌دهندهٔ مدل تا اعتبارسنجی نتیجه." style="object-position:50% 70%"><span class="thumb-no">۰۳</span></button></li><li><button class="thumb" type="button" data-open="frame-01.webp" data-caption="زنجیر کردن مهارت‌ها، طرح مفهومی است. امروز موتور چند مهارت مرتبط را پیدا و برنامهٔ کار را می‌سازد؛ اجرای خودکار زنجیره هنوز نیست."><img src="assets/frame-01.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Skill Chaining»: چهار مکعب شیشه‌ای ایده، مهارت، عامل و نتیجه که مثل زنجیر به هم وصل‌اند، همراه با پنج گام تحلیل، انتخاب، اجرا، بررسی و نتیجه." style="object-position:80% 45%"><span class="thumb-no">۰۴</span></button></li><li><button class="thumb" type="button" data-open="frame-06.webp" data-caption="از این تصویر، SHA-256 واقعی است: هر ۳۰۰۰ بدنهٔ مهارت قبل از استفاده هش می‌شوند. اسکن بدافزار، قرنطینه و تأیید انسانی هنوز پیاده نشده‌اند."><img src="assets/frame-06.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «امنیت Skillها»: سپر درخشان روی پشتهٔ اسکن، تأیید، بازبینی و تصویب، با کارت‌های SHA-256، اسکن امنیتی، بررسی تکراری، قرنطینه و جریان تأیید." style="object-position:20% 55%"><span class="thumb-no">۰۵</span></button></li><li><button class="thumb" type="button" data-open="frame-07.webp" data-caption="کلیدها فقط در متغیرهای محیطی سرور می‌مانند و به مرورگر نمی‌رسند؛ فایل مهارتِ تغییرکرده رد می‌شود. ردپای بازبینی و جریان تأیید در این تصویر هنوز طرح‌اند."><img src="assets/frame-07.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «امنیت و حاکمیت»: سپر آبی با پنل ردپای بازبینی، کارت هش SHA-256 و جریان اسکن، بازبینی و تأیید؛ پایین کارت‌های اسکن امنیتی، قرنطینه و عدم نمایش توکن و رمز." style="object-position:75% 40%"><span class="thumb-no">۰۶</span></button></li><li><button class="thumb" type="button" data-open="frame-03.webp" data-caption="فقط آنچه لازم است. در حالت پاسخ، تنها سه مهارتِ برتر و تأییدشده همراه درخواست به مدل فرستاده می‌شوند."><img src="assets/frame-03.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Lazy Loading»: قیف شیشه‌ای که فقط چند کاشی مهارت را به جعبهٔ هسته می‌فرستد، با مقایسهٔ «بارگذاری کامل» و «بارگذاری هدفمند»." style="object-position:20% 45%"><span class="thumb-no">۰۷</span></button></li><li><button class="thumb" type="button" data-open="frame-21.webp" data-caption="مسیریاب امروز واژگانی است: وزن‌دهی IDF با پل فارسی به انگلیسی و ریشه‌یابی پسوندها. مراحل معنایی و بازرتبه‌بندیِ این تصویر هنوز ساخته نشده‌اند."><img src="assets/frame-21.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «مسیریابی هوشمند»: مکعب موتور مسیریابی که درخواست، زمینه، هدف، پایگاه مهارت و قوانین را می‌گیرد؛ زیر آن مراحل تحلیل واژگانی، معنایی، برچسب، انتخاب K برتر و بازرتبه‌بندی." style="object-position:75% 35%"><span class="thumb-no">۰۸</span></button></li><li><button class="thumb" type="button" data-open="frame-04.webp" data-caption="نقشهٔ لایه‌ها، نه وضعیت آن‌ها. از این لایه‌ها امروز رابط، مسیریاب، رجیستری و آداپتور مدل رایگان ساخته شده‌اند؛ عامل هماهنگ‌کننده، MCP و اجرای Python و Git در این سایت وجود ندارند."><img src="assets/frame-04.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید نمای کلی پلتفرم: مکعب «AI Operating System» روی لایه‌های مدل، ابزار، مهارت و ارکستراسیون، وصل به کاشی‌های Skills، MCP، Models، Python، Node و Git، همراه با کارت عامل هماهنگ‌کننده." style="object-position:75% 50%"><span class="thumb-no">۰۹</span></button></li><li><button class="thumb" type="button" data-open="frame-11.webp" data-caption="لایهٔ ابزار هنوز خاموش است: موتور هیچ فایل، ترمینال، مرورگر یا سرور MCP را اجرا نمی‌کند و ادعای اجرای ابزار هم نمی‌کند."><img src="assets/frame-11.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «ابزارها و MCP»: مکعب مرکزی وصل به کاشی‌های فایل، Git، ترمینال، مرورگر، ابزار محلی و سرور MCP." style="object-position:60% 45%"><span class="thumb-no">۱۰</span></button></li><li><button class="thumb" type="button" data-open="frame-10.webp" data-caption="انتزاع ارائه‌دهنده و جابه‌جایی خودکار واقعاً پیاده شده‌اند، اما با ارائه‌دهندگان رایگان دیگر: Groq، Cerebras، Google AI Studio و مدل‌های ‎:free‎ در OpenRouter. هیچ مسیر پولی‌ای وجود ندارد."><img src="assets/frame-10.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «استراتژی مدل‌ها و Providerها»: سه ردیف Qwen و Hugging Face، Provider جایگزین و Codex، و مکعب مرکزی با کاشی‌های جایگزینی خودکار، کنترل هزینه و تعویض مدل." style="object-position:25% 55%"><span class="thumb-no">۱۱</span></button></li><li><button class="thumb" type="button" data-open="frame-20.webp" data-caption="طرح اولیهٔ مسیر رایگان. Qwen و Hugging Face امروز وصل نیستند؛ رایگان بودن هر ارائه‌دهنده هم به شرایط فعلی خودش بستگی دارد و بدون آزمون زنده قول داده نمی‌شود."><img src="assets/frame-20.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Qwen / Hugging Face»: دو ابر درخشان با نام Qwen و Hugging Face روی یک سکو، با کاشی‌های تولید متن، کد، تصویر و Embeddings." style="object-position:75% 40%"><span class="thumb-no">۱۲</span></button></li><li><button class="thumb" type="button" data-open="frame-09.webp" data-caption="Codex به این سایت وصل نیست. این اسلاید یادآوری می‌کند که مدل، سهمیه و مجوز اجرا سه یکپارچه‌سازی جدا هستند."><img src="assets/frame-09.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Codex»: مکعب درخشان با آیکون مغز و نوار هشدار «وضعیت فعلی: محدودیت موقت سهمیه»." style="object-position:25% 80%"><span class="thumb-no">۱۳</span></button></li><li><button class="thumb" type="button" data-open="frame-24.webp" data-caption="تجربهٔ مسیر قبلی و درس‌هایش، نه بخشی از موتور فعلی. موتور امروز بدون پل راه دور و بدون فرایند همیشه‌روشن، روی توابع Vercel اجرا می‌شود."><img src="assets/frame-24.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «Claude Code / Proxy»: مسیر سه‌بخشی Claude Code، Proxy و Codex با هشدارهای Remote Bridge: Forbidden و Codex: Usage Limit." style="object-position:50% 50%"><span class="thumb-no">۱۴</span></button></li><li><button class="thumb" type="button" data-open="frame-02.webp" data-caption="خلاصهٔ ارزش پروژه. اعداد نمودارهای این تصویر (مثل ۷۲٪ و ۸۶٪) تزئینی‌اند و اندازه‌گیری نشده‌اند."><img src="assets/frame-02.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «خلاصهٔ مدیریتی»: پنج کارت مزیت مثل افزایش سرعت و کاهش هزینهٔ آزمون و خطا، کنار مکعب مرکزی و نمودارهای تزئینی." style="object-position:25% 50%"><span class="thumb-no">۱۵</span></button></li><li><button class="thumb" type="button" data-open="frame-22.webp" data-caption="پرسش تصمیم: چرا ادامه دهیم؟ نمودار، روند مطلوب را نشان می‌دهد، نه نتیجهٔ اندازه‌گیری‌شده."><img src="assets/frame-22.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «اثر تجاری و تصمیم مدیریتی»: نمودار ستونی سه‌بعدی رو به بالا و کارت‌های سرعت بالاتر، هزینهٔ کمتر، کنترل بیشتر و آمادگی برای اتوماسیون." style="object-position:25% 45%"><span class="thumb-no">۱۶</span></button></li><li><button class="thumb" type="button" data-open="frame-19.webp" data-caption="وضعیت محیط توسعهٔ قبلیِ مالک، نه این سرور. وضعیت این سایت در جدول کنار همین بخش آمده است."><img src="assets/frame-19.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «وضعیت واقعی پروژه»: کاشی‌های وضعیت با نقطه‌های سبز، زرد و قرمز برای Node 22، Python 3.11، uv، Git، Claude Code، Codex، Proxy و Remote Bridge." style="object-position:30% 50%"><span class="thumb-no">۱۷</span></button></li><li><button class="thumb" type="button" data-open="frame-14.webp" data-caption="نسخهٔ فعلی به اجرای محلی یا لپ‌تاپ نیاز ندارد؛ همه چیز روی توابع بدون‌حالت Vercel است و بررسی‌ها با npm test اجرا می‌شوند."><img src="assets/frame-14.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «اجرای Local»: لپ‌تاپ با عبارت Local Runtime روی پشتهٔ محیط، پکیج‌ها، مخازن، مهارت‌ها و تست، و کاشی‌های Python، Node، uv و Git با تیک سبز." style="object-position:75% 45%"><span class="thumb-no">۱۸</span></button></li><li><button class="thumb" type="button" data-open="frame-05.webp" data-caption="نقشهٔ راه قدیمی. در واقعیت، آخرین گامِ آن (نمایه و ورود ۳۰۰۰ مهارت) اول انجام شد؛ وضعیت فعلی هر مرحله در خط زمانی زیر آمده است."><img src="assets/frame-05.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «نقشهٔ راه اجرا»: جاده‌ای درخشان با تابلوهای مرحله که به بلوک «Registry 3000+» می‌رسد، و پنج کارت شماره‌دار مراحل." style="object-position:75% 30%"><span class="thumb-no">۱۹</span></button></li></ol>
+  <h3 class="grid-title">آرشیو نسخه‌های مشابه <span>(۱۱)</span></h3>
+  <ol class="thumbs" data-seq start="20"><li><button class="thumb" type="button" data-open="frame-29.webp" data-caption="نسخهٔ مشابه فریم «Skill Chaining» در روایت؛ برای کامل بودن آرشیو نگه داشته شده است."><img src="assets/frame-29.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «Skill Chaining» با چهار مکعب زنجیرشدهٔ ایده، مهارت، عامل و نتیجه." style="object-position:80% 45%"><span class="thumb-no">۲۰</span></button></li><li><button class="thumb" type="button" data-open="frame-12.webp" data-caption="نسخهٔ مشابه «Lazy Loading»؛ تفاوت فقط در منوی بالای اسلاید است."><img src="assets/frame-12.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «Lazy Loading» با قیف بارگذاری هدفمند مهارت‌ها." style="object-position:20% 45%"><span class="thumb-no">۲۱</span></button></li><li><button class="thumb" type="button" data-open="frame-08.webp" data-caption="نسخهٔ مشابه «امنیت Skillها». یادآوری: از این تصویر فقط بررسی SHA-256 امروز واقعی است."><img src="assets/frame-08.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «امنیت Skillها» با سپر درخشان و کارت SHA-256." style="object-position:20% 55%"><span class="thumb-no">۲۲</span></button></li><li><button class="thumb" type="button" data-open="frame-13.webp" data-caption="نسخهٔ دیگر استراتژی مدل‌ها با برچسب‌های اصلی، پشتیبان و ممتاز. ارائه‌دهندگان واقعی امروز در بخش مدل‌ها آمده‌اند."><img src="assets/frame-13.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «استراتژی مدل‌ها و Providerها» با سه ردیف اصلی، پشتیبان و ممتاز." style="object-position:25% 55%"><span class="thumb-no">۲۳</span></button></li><li><button class="thumb" type="button" data-open="frame-18.webp" data-caption="تکرار تقریباً یکسان اسلاید استراتژی مدل‌ها."><img src="assets/frame-18.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ سوم اسلاید «استراتژی مدل‌ها و Providerها»، تقریباً یکسان با نسخهٔ قبلی." style="object-position:25% 55%"><span class="thumb-no">۲۴</span></button></li><li><button class="thumb" type="button" data-open="frame-30.webp" data-caption="نسخهٔ مشابه «ابزارها و MCP». اجرای ابزار هنوز در موتور وجود ندارد."><img src="assets/frame-30.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «ابزارها و MCP» با کاشی‌های فایل، Git، ترمینال و مرورگر." style="object-position:60% 45%"><span class="thumb-no">۲۵</span></button></li><li><button class="thumb" type="button" data-open="frame-15.webp" data-caption="نسخهٔ مشابه «اجرای Local»؛ نسخهٔ فعلی سایت به اجرای محلی وابسته نیست."><img src="assets/frame-15.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «اجرای Local» با لپ‌تاپ و پشتهٔ محیط اجرا." style="object-position:75% 45%"><span class="thumb-no">۲۶</span></button></li><li><button class="thumb" type="button" data-open="frame-25.webp" data-caption="نسخهٔ مشابه «مسیریابی هوشمند». مسیریاب فعلی واژگانی و مبتنی بر IDF است."><img src="assets/frame-25.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «مسیریابی هوشمند» با مکعب موتور مسیریابی و پنج مرحلهٔ انتخاب." style="object-position:75% 35%"><span class="thumb-no">۲۷</span></button></li><li><button class="thumb" type="button" data-open="frame-23.webp" data-caption="نسخهٔ مشابه «Qwen / Hugging Face»؛ این دو ارائه‌دهنده امروز وصل نیستند."><img src="assets/frame-23.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «Qwen / Hugging Face» با دو ابر درخشان." style="object-position:75% 40%"><span class="thumb-no">۲۸</span></button></li><li><button class="thumb" type="button" data-open="frame-28.webp" data-caption="نسخهٔ مشابه «Codex»؛ به این سایت وصل نیست."><img src="assets/frame-28.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «Codex» با نوار هشدار محدودیت موقت سهمیه." style="object-position:25% 80%"><span class="thumb-no">۲۹</span></button></li><li><button class="thumb" type="button" data-open="frame-27.webp" data-caption="نسخهٔ مشابه «Claude Code / Proxy»؛ سابقهٔ یک آزمایش قبلی."><img src="assets/frame-27.webp" width="1672" height="941" loading="lazy" decoding="async" alt="نسخهٔ دیگر اسلاید «Claude Code / Proxy» با هشدار Remote Bridge و محدودیت استفاده." style="object-position:50% 50%"><span class="thumb-no">۳۰</span></button></li></ol>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="chapter" aria-labelledby="roadmapTitle">
+  <p class="chapter-no"><span dir="ltr">10</span> نقشهٔ راه</p>
+  <h2 id="roadmapTitle" data-reveal>از نمونه <em>تا محصول.</em></h2>
+  <ol class="timeline">
+    <li data-reveal><span class="badge ok">در دسترس</span><h3>مسیریابی ۳۰۰۰ مهارت</h3><p>رتبه‌بندی فارسی و انگلیسی و حالت برنامه.</p></li>
+    <li data-reveal><span class="badge ok">انجام شد</span><h3>ورود و تأیید بدنهٔ مهارت‌ها</h3><p>هر ۳۰۰۰ فایل با بررسی <span dir="ltr">SHA-256</span>.</p></li>
+    <li data-reveal><span class="badge warn">کد آماده</span><h3>مدل رایگان با جابه‌جایی خودکار</h3><p>با افزودن دست‌کم یک کلید رایگان روی سرور فعال می‌شود.</p></li>
+    <li data-reveal><span class="badge warn">بخشی تأیید شده</span><h3>استقرار ابری</h3><p>صفحه و تابع سلامت روی Vercel پاسخ داده‌اند؛ فراخوانی‌های احرازشده از بیرون هنوز تأیید نشده‌اند.</p></li>
+    <li data-reveal><span class="badge plan">در انتظار</span><h3>نشست امن به‌جای توکن دستی</h3><p>کوکی <span dir="ltr">HttpOnly</span> به‌جای چسباندن کلید.</p></li>
+    <li data-reveal><span class="badge plan">در انتظار</span><h3>تاریخچهٔ وظایف و اجرای پایدار</h3><p>ذخیره‌سازی نتیجه‌ها و ادامهٔ کار.</p></li>
+    <li data-reveal><span class="badge plan">در انتظار</span><h3>ابزارها و <span dir="ltr">MCP</span> با مجوز</h3><p>اجرای واقعی فقط با اجازهٔ صریح و گزارش نتیجه.</p></li>
+  </ol>
+  <figure class="frame" data-reveal>
+    <button class="frame-btn" type="button" data-open="frame-05.webp"><img src="assets/frame-05.webp" width="1672" height="941" loading="lazy" decoding="async" alt="اسلاید «نقشهٔ راه اجرا»: جاده‌ای درخشان با تابلوهای مرحله که به بلوک «Registry 3000+» می‌رسد، و پنج کارت شماره‌دار مراحل."><span class="frame-zoom" aria-hidden="true">⤢</span><span class="sr">نمایش تمام‌صفحه</span></button>
+    <figcaption><span class="frame-no">فریم ۱۹ / ۳۰</span>نقشهٔ راه قدیمی. در واقعیت، آخرین گامِ آن (نمایه و ورود ۳۰۰۰ مهارت) اول انجام شد؛ وضعیت فعلی هر مرحله در خط زمانی زیر آمده است.</figcaption>
+  </figure>
+</section>
+
+<!-- FINALE -->
+<section id="finale" class="finale" aria-labelledby="finaleTitle">
+  <div class="core core-evolved" aria-hidden="true">
+    <svg class="core-rings" viewBox="0 0 400 400"><circle cx="200" cy="200" r="190"/><circle cx="200" cy="200" r="150"/><circle cx="200" cy="200" r="110"/><path d="M200 10a190 190 0 0 1 164 95"/><path d="M50 200a150 150 0 0 1 60-120"/></svg>
+    <div class="core-orb"><span dir="ltr">3000</span></div>
+    <span class="core-node n1"></span><span class="core-node n2"></span><span class="core-node n3"></span><span class="core-node n4"></span>
+  </div>
+  <h2 id="finaleTitle" data-reveal>این پایان ارائه نیست؛ <em>شروع یک محصول است.</em></h2>
+  <p class="body" data-reveal>هسته حالا دیده می‌شود: رجیستری تأییدشده و مسیریابی که می‌توانی همین حالا آزمایش کنی.</p>
+  <div class="actions center" data-reveal>
+    <a class="btn btn-primary" href="#engineLab">ورود به کنسول امن</a>
+    <a class="btn btn-ghost" href="#top">بازگشت به هسته <span aria-hidden="true">↑</span></a>
+  </div>
+  <div class="fineprint">
+    <details><summary>روش فنی</summary><p>رجیستری ایستا + مسیریاب واژگانی <span dir="ltr">IDF</span> + بررسی هش در زمان اجرا + آداپتور مدل‌های رایگان، همه در توابع بدون‌حالت Vercel. جزئیات در بخش <a href="#architecture">معماری</a>.</p></details>
+    <details><summary>حریم خصوصی</summary><p>کلید دسترسی فقط در فیلد ورودی می‌ماند و در مرورگر ذخیره نمی‌شود. کلید مدل‌ها فقط روی سرور است. درخواست‌ها ذخیره نمی‌شوند؛ اما در حالت پاسخ، متن درخواست و مهارت‌های منتخب برای ارائه‌دهندهٔ مدل رایگان فرستاده می‌شود و تابع شرایط همان ارائه‌دهنده است.</p></details>
+  </div>
+</section>
 </main>
-<div class="gallery" id="gallery" role="dialog" aria-modal="true" aria-label="آرشیو تصاویر پروژه" aria-hidden="true"><div class="gallery-top"><div><small>VISUAL ARCHIVE</small><h2>۳۰ فریمِ مرجع</h2></div><button id="closeGallery" class="close-gallery" aria-label="بستن آرشیو">✕</button></div><div class="gallery-grid" id="galleryGrid"></div><div class="gallery-viewer" id="galleryViewer" hidden><div class="viewer-top"><span id="viewerIndex">01 / 30</span><button id="viewerClose" aria-label="بازگشت به آرشیو">✕ بازگشت</button></div><button id="prevImage" class="viewer-control prev" aria-label="تصویر قبلی">‹</button><img id="viewerImage" alt="فریم مرجع پروژه"/><button id="nextImage" class="viewer-control next" aria-label="تصویر بعدی">›</button></div></div>
-<footer><span>© POORS / 3000 — CONCEPT PROTOTYPE</span><span>BASED ON PROVIDED VISUAL REFERENCES · ORIGINAL IMPLEMENTATION</span><a href="#home">بازگشت ↑</a></footer>
-<script src="app.js" defer></script><script src="engine-ui.js" defer></script>
-</body></html>
+
+<footer class="foot">
+  <span dir="ltr">POORS / ALGORITHME 3000</span>
+  <span>نمونهٔ در حال ساخت · تصاویر: اسلایدهای مفهومی خود پروژه</span>
+  <a href="#top">بالا ↑</a>
+</footer>
+
+<dialog class="viewer" id="viewer" aria-labelledby="viewerCount">
+  <div class="viewer-top">
+    <p id="viewerCount" class="viewer-count">فریم ۱ از ۳۰</p>
+    <button class="icon-btn" type="button" id="viewerZoom" aria-pressed="false">بزرگ‌نمایی</button>
+    <button class="icon-btn" type="button" id="viewerClose" autofocus>بستن <span aria-hidden="true">✕</span></button>
+  </div>
+  <div class="viewer-stage" id="viewerStage">
+    <img id="viewerImg" src="data:," alt="" width="1672" height="941" decoding="async">
+  </div>
+  <p id="viewerCaption" class="viewer-caption" aria-live="polite"></p>
+  <div class="viewer-bottom">
+    <button class="icon-btn" type="button" id="viewerPrev" aria-label="فریم قبلی">→</button>
+    <span class="viewer-hint">کشیدن انگشت یا کلیدهای جهت</span>
+    <button class="icon-btn" type="button" id="viewerNext" aria-label="فریم بعدی">←</button>
+  </div>
+</dialog>
+
+<script src="app.js" defer></script>
+<script src="engine-ui.js" defer></script>
+<script src="pwa.js" defer></script>
+</body>
+</html>
