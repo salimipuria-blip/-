@@ -8,8 +8,13 @@ iPhone-first Persian site plus a serverless engine on Vercel. Nothing here needs
 - **Plan mode**: route + the verified instructions of the chosen skills.
 - **Answer mode**: sends the request with the top 3 verified skills to a **free-tier** model (Groq, Cerebras, Google AI Studio, OpenRouter `:free`) with failover. With no key configured it fails with `NO_PROVIDER_CONFIGURED` and still returns the ready skills. It never falls back to a paid route.
 
+## Also in place
+- Public story in the V4 order with all 30 frames (`docs/FRAME_MAP.json`).
+- Login via HttpOnly cookie, task history in Supabase (free tier), installable PWA.
+- Router gold set + CI (`npm run eval`): hit@5 0.979 overall, 0.947 on held-out queries.
+
 ## Not done yet
-Task history/persistence, accounts, MCP/tool execution, image generation, the cinematic story rebuild of the V4 brief, and the 30-frame narrative map. See `docs/FEATURE_STATUS.json`.
+MCP/tool execution, image generation, replacing the 1,650 templated skills (`docs/SKILL_AUDIT.md`). See `docs/FEATURE_STATUS.json`.
 
 ## Deploy from iPhone
 1. Vercel → Add New → Project → import GitHub repo `salimipuria-blip/-`, **Root Directory `poors`**, framework **Other**.

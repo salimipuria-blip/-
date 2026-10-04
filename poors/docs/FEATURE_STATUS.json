@@ -13,16 +13,23 @@
   "PWA manifest, icons, service worker and offline page (not cached: /api)",
   "durable task history via secret-gated Supabase RPCs (best effort, persisted flag on every task)",
   "GET /api/history (shown in console as «آخرین وظایف»)",
-  "storeStatus() reported in /api/health"
+  "storeStatus() reported in /api/health",
+  "public story rebuilt in brief order with all 30 frames (docs/FRAME_MAP.json: 19 in story, 11 near-duplicates in archive)",
+  "router gold set (96 queries) with CI gate: hit@5 0.979, holdout 0.947",
+  "free-model rediscovery when a provider retires a model id",
+  "readable Persian plan output in the console",
+  "skill audit: 1,350 hand-written vs 1,650 templated (docs/SKILL_AUDIT.md)"
  ],
  "pending_owner_action": [
+  "Vercel project Root Directory is set to 'psk' but the folder is 'poors': every build since the rename fails",
   "add at least one free provider key (GROQ_API_KEY or GEMINI_API_KEY)",
   "delete Supabase smoke-test row 11111111-2222-4333-8444-555555555555 from poors_tasks"
  ],
  "pending_build": [
-  "30-frame narrative map and cinematic story rebuild",
   "MCP/tool execution",
-  "router gold-set evaluation in CI"
+  "one parameterised skill per domain to replace templated skills (measure with npm run eval)",
+  "WebGL core (optional; CSS/SVG core ships now)",
+  "real-iPhone Safari test and Core Web Vitals measurement"
  ],
  "mocked": [],
  "blocked": [],

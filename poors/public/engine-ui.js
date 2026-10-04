@@ -103,6 +103,18 @@
   }catch{historyBox.hidden=true;}
  }
 
+
+ // Readable Persian summary of a routing plan (the raw JSON is far too long for a phone).
+ function planText(r){
+  if(!r||r.kind!=='verified-routing-plan')return JSON.stringify(r,null,2);
+  const lines=[r.message||'',''];
+  const loaded=r.skillContent?.loaded||[];
+  if(loaded.length){lines.push('مهارت‌های تأییدشده:');for(const s of loaded)lines.push(`• ${s.name}${s.description?' — '+s.description:''}`);lines.push('');}
+  if(r.skillContent?.missing?.length)lines.push('بدون متن: '+r.skillContent.missing.join('، '),'');
+  if(r.nextActions?.length){lines.push('گام‌های بعدی:');for(const a of r.nextActions)lines.push(`${(a.step||'').toLocaleString('fa-IR')}. ${a.action}`);}
+  if(typeof r.matchedSkillCount==='number')lines.push('',`${r.matchedSkillCount.toLocaleString('fa-IR')} مهارت با این درخواست هم‌پوشانی داشتند.`);
+  return lines.join('\n').trim();
+ }
  function displayTask(task){
   clear(events);clear(skills);response.textContent='';
   for(const ev of task.events||[])line(events,`${ev.type} · ${new Date(ev.at).toLocaleTimeString('fa-IR')}`);
@@ -110,7 +122,7 @@
   if(task.status==='failed'){status.textContent=`اجرا متوقف شد: ${task.error?.code||'خطا'}`;const ready=(task.result?.skillsReady||[]).map(s=>`• ${s.name}: ${s.description||''}`).join('\n');response.textContent=(task.error?.message||'خطا')+(ready?`\n\nمهارت‌های تأییدشدهٔ آماده:\n${ready}`:'');}
   else if(task.status==='completed'){
     status.textContent=task.result?.kind==='llm-response'?`پاسخ از ${task.result.provider} · ${task.result.model} دریافت شد؛ هیچ ابزار خارجی اجرا نشده است.`:'مسیریابی و تولید برنامه به پایان رسید؛ هنوز خروجی تخصصی تولید نشده است.';
-    response.textContent=task.result?.kind==='llm-response'?task.result.answer:JSON.stringify(task.result,null,2);
+    response.textContent=task.result?.kind==='llm-response'?task.result.answer:planText(task.result);
   }else status.textContent='در حال اجرای واقعی مسیر وظیفه…';
  }
  run.addEventListener('click',async()=>{
