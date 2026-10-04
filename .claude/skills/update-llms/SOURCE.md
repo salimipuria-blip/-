@@ -1,4 +1,5 @@
 Source: https://github.com/github/awesome-copilot/tree/HEAD/skills/update-llms
 Repository: github/awesome-copilot
 License: MIT (see ../_licenses/github__awesome-copilot__LICENSE)
-Only SKILL.md is included; companion files from the source folder are not.
+Companion files from the source folder are included (files over 1 MB and nested sub-skills excluded).
+INCOMPLETE: SKILL.md references files not present here (they live elsewhere in the upstream repo or do not exist upstream): examples/advanced-usage.md, examples/basic-usage.md
