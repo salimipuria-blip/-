@@ -21,3 +21,13 @@ Two ways in, both checked by `guard()` in `api/_core.mjs`:
 ## Known limits
 - Logout clears the browser cookie, but a stolen cookie value stays valid until it expires (max 7 days), because sessions are stateless. Rotate `ENGINE_TOKEN` to revoke all sessions at once.
 - `Secure` cookies are not stored over plain `http://` except on `localhost`; use `http://localhost:<port>` for the local dev server.
+
+
+## Task history store
+- The app holds only the Supabase **publishable** key, which is public by design. Protection comes from the database:
+  - `public.poors_tasks` and `poors_private.history_secret` have RLS enabled with **no policies**, and all table privileges are revoked from `anon`/`authenticated`. `poors_private` is not an exposed schema and `anon` has no USAGE on it.
+  - The only grants to `anon` are `EXECUTE` on `poors_log_task(text,jsonb)` and `poors_list_tasks(text,int)`. Both are `SECURITY DEFINER` with `search_path=''` and fully qualified names; they compare `sha256(p_secret)` to the single stored hash and raise `42501` otherwise. They validate payload size (≤64 KB, ≤25 skills, ≤50 events, per-column length checks) and clamp `p_limit` to 1–50.
+  - `HISTORY_SECRET` (32 random bytes) lives only in Vercel env; only its SHA-256 is in the database. Rotate by updating `poors_private.history_secret` and the Vercel variable together.
+- Accepted advisor findings: `rls_enabled_no_policy` (intended deny-all) and `anon_security_definer_function_executable` for the two RPCs (the intended, secret-gated gateway). With only a publishable key there is no safer shape.
+- Stored data: user input, selected skill names, final answer and event types. No keys, tokens or provider error bodies are stored.
+- `/api/history` is behind the same `ENGINE_TOKEN` guard as every endpoint; store errors return a code only (`502 {error:"STORE_…"}`), never the URL, key or secret.

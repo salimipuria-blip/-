@@ -10,15 +10,16 @@
   "bearer-token API guard, fail-closed on Vercel",
   "local dev server for browser QA",
   "HttpOnly cookie session with CSRF header (replaces pasted bearer token in the UI)",
-  "PWA manifest, icons, service worker and offline page (not cached: /api)"
+  "PWA manifest, icons, service worker and offline page (not cached: /api)",
+  "durable task history via secret-gated Supabase RPCs (best effort, persisted flag on every task)",
+  "GET /api/history (shown in console as «آخرین وظایف»)",
+  "storeStatus() reported in /api/health"
  ],
  "pending_owner_action": [
-  "create Vercel project from GitHub (root: poors) if automatic linking fails",
-  "add ENGINE_TOKEN",
-  "add at least one free provider key"
+  "add at least one free provider key (GROQ_API_KEY or GEMINI_API_KEY)",
+  "delete Supabase smoke-test row 11111111-2222-4333-8444-555555555555 from poors_tasks"
  ],
  "pending_build": [
-  "task history (Supabase free tier)",
   "30-frame narrative map and cinematic story rebuild",
   "MCP/tool execution",
   "router gold-set evaluation in CI"

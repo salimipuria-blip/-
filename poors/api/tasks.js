@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
 import {guard,reply,route,inputCheck,planOf,skills,answerMessages,chat} from './_core.mjs';
+import {logTask} from './_store.mjs';
 export default async function handler(req,res){if(!guard(req,res,'POST'))return;
  let d=req.body;
  if(typeof d==='string'){try{d=JSON.parse(d)}catch{return reply(res,400,{error:'Invalid JSON'});}}
@@ -34,5 +35,8 @@ export default async function handler(req,res){if(!guard(req,res,'POST'))return;
  }
  event(task.status,{...(task.status==='failed'?{error:task.error}:{resultKind:task.result.kind})});
  // Complete within this invocation. There is intentionally no ephemeral task map or background promise.
+ // Durable history is best effort: a storage failure is reported on the task, never turned into a task failure.
+ const saved=await logTask(task,input).catch(()=>({persisted:false,reason:'STORE_ERROR'}));
+ task.persisted=saved.persisted;if(!saved.persisted)task.persistReason=saved.reason;
  return reply(res,200,task);
 }
