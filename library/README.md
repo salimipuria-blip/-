@@ -1,6 +1,6 @@
 # PSK Library
 
-Shared assets of the PSK project, kept in one place.
+Shared assets of the PSK project, kept in one place. Backend/frontend plan for every project: [`ROADMAP.md`](../ROADMAP.md).
 
 | Part | Path | Status |
 |---|---|---|
