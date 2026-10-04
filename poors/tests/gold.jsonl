@@ -1,0 +1,96 @@
+{"q":"برای کافه‌ام یه کپشن اینستاگرام جذاب بنویس","expected":["caption-writer-fa","caption-hook-writer-fa","social-captions-batcher"],"lang":"fa"}
+{"q":"منوی کافه رو طراحی کن با تایپوگرافی خوب","expected":["cafe-menu-board-design","menu-visual-designer"],"lang":"fa"}
+{"q":"سی تا کپشن یکجا برای پیج کلینیک دندانپزشکی می‌خوام","expected":["social-captions-batcher","caption-writer-fa"],"lang":"fa","split":"holdout"}
+{"q":"تقویم محتوایی یک ماهه برای پیج اینستاگرام جواهرفروشی","expected":["editorial-calendar-fa","ig-content-calendar-bot","content-calendar","posting-cadence-planner"],"lang":"fa"}
+{"q":"سناریوی ریلز ۳۰ ثانیه‌ای برای معرفی تور شیراز","expected":["short-video-script-writer-fa","tour-promo-reel-template","reels-scripts-batch","reels-scripting"],"lang":"fa"}
+{"q":"ده تا ایده ریلز برای کافه بده","expected":["reel-idea-bank-fa","reels-scripts-batch"],"lang":"fa"}
+{"q":"هشتگ مناسب برای پست طلا و جواهر","expected":["persian-hashtag-generator","hashtag-research-analyzer"],"lang":"fa"}
+{"q":"بایوی پیج اینستاگرام کلینیک رو بازنویسی کن","expected":["bio-rewriter-fa","ig-profile-audit-fa"],"lang":"fa","split":"holdout"}
+{"q":"لوگو برای یک کافه کوچک طراحی کن","expected":["logo-concept-explorer","logo-grid-construction","brand-kit-generator"],"lang":"fa"}
+{"q":"هویت بصری و کتاب برند برای برند جواهر","expected":["brand-book-generator","brand-kit-generator"],"lang":"fa"}
+{"q":"یک لندینگ پیج برای کلینیک دندانپزشکی بساز","expected":["landing-page-generator","landing-page-copy-fa","landing-copy-framework-fa","frontend-design"],"lang":"fa"}
+{"q":"سایت وردپرسی فارسی برای رستوران راه‌اندازی کن","expected":["wordpress-setup-fa","rtl-template-engine"],"lang":"fa","split":"holdout"}
+{"q":"فروشگاه اینترنتی ووکامرس برای جواهرات","expected":["woocommerce-store-fa","shop-setup-checklist-fa"],"lang":"fa"}
+{"q":"سئوی سایت آژانس مسافرتی رو بررسی کن","expected":["seo-audit","seo-technical-audit-fa"],"lang":"fa"}
+{"q":"مقاله سئو برای وبلاگ کلینیک زیبایی بنویس","expected":["seo-article-writer-fa","blog-outline-builder-fa"],"lang":"fa"}
+{"q":"گزارش فروش ماهانه در اکسل با داشبورد","expected":["dashboard-designer-xlsx","pivot-table-builder","excel-to-pdf-reporter","budget-vs-actual-fa"],"lang":"fa"}
+{"q":"فرمول اکسل برای جمع فروش هر ماه می‌خوام","expected":["excel-formula-tutor","pivot-table-builder"],"lang":"fa","split":"holdout"}
+{"q":"فاکتور فارسی در اکسل با شماره خودکار","expected":["invoice-generator-xlsx-fa","official-invoice-fa-kit"],"lang":"fa"}
+{"q":"تبدیل تاریخ شمسی به میلادی در اکسل","expected":["persian-jalali-date-converter"],"lang":"fa"}
+{"q":"انبارداری و موجودی کالا در اکسل","expected":["inventory-tracker-xlsx"],"lang":"fa"}
+{"q":"یک پرامپت حرفه‌ای برای تولید عکس محصول بنویس","expected":["product-photo-prompt-kit","ai-image-prompt-builder"],"lang":"fa","split":"holdout"}
+{"q":"پرامپتم رو بهتر و دقیق‌تر کن","expected":["prompt-rewrite-coach","prompt-optimizer"],"lang":"fa"}
+{"q":"سیستم پرامپت برای چت‌بات پشتیبانی کلینیک بنویس","expected":["system-prompt-architect","persona-prompt-designer"],"lang":"fa"}
+{"q":"اسکریپت ویدیو یوتیوب درباره سفر به کویر","expected":["youtube-script-structure","longform-youtube-structure"],"lang":"fa"}
+{"q":"زیرنویس فارسی برای ریلز بساز","expected":["ig-reels-auto-captioner","srt-subtitle-generator-fa","reels-karaoke-captions-fa"],"lang":"fa"}
+{"q":"متن نریشن برای تیزر تبلیغاتی جواهرفروشی","expected":["voiceover-script-fa","product-teaser-template"],"lang":"fa","split":"holdout"}
+{"q":"پوستر تور نوروزی طراحی کن","expected":["tour-poster-templates","poster-generator-skill","seasonal-banner-generator"],"lang":"fa"}
+{"q":"کارت دعوت عروسی شیک","expected":["wedding-invitation-fa"],"lang":"fa"}
+{"q":"کارت ویزیت برای مطب دندانپزشک","expected":["business-card-fa-standard"],"lang":"fa"}
+{"q":"بروشور سه لت برای کلینیک","expected":["trifold-brochure-fa","dental-brochure-workflow"],"lang":"fa","split":"holdout"}
+{"q":"متن تبلیغ اینستاگرام برای تخفیف یلدای کافه","expected":["ig-ad-copy-generator","seasonal-campaign-fa","yalda-campaign-shop"],"lang":"fa"}
+{"q":"کمپین نوروزی برای فروشگاه آنلاین","expected":["seasonal-campaign-fa","nowruz-store-reset-kit"],"lang":"fa"}
+{"q":"جواب کامنت منفی مشتری رو چی بدم","expected":["review-response-fa","crisis-comms-template"],"lang":"fa"}
+{"q":"اسکریپت دایرکت برای وقتی مشتری میگه گرونه","expected":["objection-handling-dm","objection-bank-fa","dm-script-library-fa","pricing-objection-playbook"],"lang":"fa"}
+{"q":"توضیحات محصول برای انگشتر طلا در سایت","expected":["product-description-fa","product-copy-seo-fa"],"lang":"fa","split":"holdout"}
+{"q":"عکس محصول جواهرات با نور ماکرو","expected":["jewelry-macro-prompts","product-photo-prompt-kit"],"lang":"fa"}
+{"q":"پرامپت عکس غذا برای منوی رستوران","expected":["food-photography-prompts-fa"],"lang":"fa"}
+{"q":"استوری‌های زنجیره‌ای برای معرفی خدمات کلینیک","expected":["story-sequence-planner","story-engagement-ideas"],"lang":"fa"}
+{"q":"کاروسل آموزشی ۷ اسلایدی درباره مراقبت از دندان","expected":["carousel-editorial-planner","instagram-carousel"],"lang":"fa"}
+{"q":"برنامه سفر ۵ روزه اصفهان و شیراز برای گردشگر خارجی","expected":["iran-itinerary-builder","classic-route-isfahan-shiraz"],"lang":"fa","split":"holdout"}
+{"q":"متن فراخوان تور کویر لوت","expected":["tour-description-writer","lut-desert-tour-planner"],"lang":"fa"}
+{"q":"قیمت گذاری تور با هزینه ثابت و متغیر","expected":["tour-pricing-sheet","tour-pricing-template-fa"],"lang":"fa"}
+{"q":"پروپوزال همکاری رسمی برای مشتری جدید","expected":["proposal-template-fa"],"lang":"fa"}
+{"q":"تحلیل رقبای پیج اینستاگرام کافه‌ام","expected":["competitor-benchmark-ig","competitor-account-tracker","competitor-analysis"],"lang":"fa","split":"holdout"}
+{"q":"گزارش ماهانه اینستاگرام برای کارفرما","expected":["monthly-report-template-ig","ig-analytics-reporter","analytics-to-action"],"lang":"fa"}
+{"q":"شعار تبلیغاتی برای برند زعفران","expected":["slogan-generator-fa"],"lang":"fa"}
+{"q":"لیبل بسته‌بندی زعفران","expected":["saffron-label-designer"],"lang":"fa"}
+{"q":"ایمیل خبرنامه برای مشتری‌های فروشگاه","expected":["newsletter-issue-writer","newsletter-writer","retention-email-flows-fa"],"lang":"fa"}
+{"q":"متن صفحه درباره ما برای سایت","expected":["about-us-page-fa"],"lang":"fa","split":"holdout"}
+{"q":"این متن رو انسانی‌تر کن که شبیه هوش مصنوعی نباشه","expected":["humanizer"],"lang":"fa"}
+{"q":"صورتجلسه رو خلاصه کن و کارهای بعدی رو دربیار","expected":["meeting-summarizer","action-item-miner"],"lang":"fa"}
+{"q":"ویس فارسی رو به متن تبدیل کن","expected":["voice-note-transcriber-fa","whisper-transcriber-fa"],"lang":"fa"}
+{"q":"اسکریپت پادکست برای قسمت اول","expected":["podcast-script-fa"],"lang":"fa","split":"holdout"}
+{"q":"تامنیل یوتیوب جذاب","expected":["youtube-thumbnail","thumbnail-ctr-designer"],"lang":"fa"}
+{"q":"caption baraye post cafe benevis","expected":["caption-writer-fa","caption-hook-writer-fa"],"lang":"finglish"}
+{"q":"yek landing page baraye clinic dandanpezeshki besaz","expected":["landing-page-generator","landing-page-copy-fa","landing-copy-framework-fa"],"lang":"finglish"}
+{"q":"gozaresh foroosh mahane too excel","expected":["dashboard-designer-xlsx","pivot-table-builder","budget-vs-actual-fa","excel-to-pdf-reporter"],"lang":"finglish","split":"holdout"}
+{"q":"senario reels baraye moarefi tour","expected":["short-video-script-writer-fa","tour-promo-reel-template","reels-scripts-batch"],"lang":"finglish"}
+{"q":"logo tarahi kon baraye javaheri","expected":["logo-concept-explorer","logo-grid-construction"],"lang":"finglish"}
+{"q":"hashtag monaseb baraye instagram","expected":["persian-hashtag-generator","hashtag-research-analyzer"],"lang":"finglish","split":"holdout"}
+{"q":"prompt behtar baraye akse mahsool","expected":["product-photo-prompt-kit","ai-image-prompt-builder"],"lang":"finglish"}
+{"q":"taghvim mohtavayi instagram","expected":["editorial-calendar-fa","ig-content-calendar-bot","content-calendar"],"lang":"finglish"}
+{"q":"menu cafe tarahi kon","expected":["cafe-menu-board-design","menu-visual-designer"],"lang":"finglish"}
+{"q":"matn tabligh baraye takhfif nowruz","expected":["ig-ad-copy-generator","seasonal-campaign-fa"],"lang":"finglish","split":"holdout"}
+{"q":"factor excel ba shomare khodkar","expected":["invoice-generator-xlsx-fa"],"lang":"finglish"}
+{"q":"barname safar shiraz","expected":["iran-itinerary-builder","classic-route-isfahan-shiraz"],"lang":"finglish"}
+{"q":"zirnevis farsi baraye video","expected":["srt-subtitle-generator-fa","ig-reels-auto-captioner","subtitle-style-guide-fa"],"lang":"finglish","split":"holdout"}
+{"q":"write an Instagram caption for a coffee shop","expected":["caption-writer-fa","caption-hook-writer-fa"],"lang":"en"}
+{"q":"build a landing page for a dental clinic","expected":["landing-page-generator","frontend-design","landing-page-copy-fa"],"lang":"en","split":"holdout"}
+{"q":"excel dashboard for monthly sales report","expected":["dashboard-designer-xlsx","pivot-table-builder"],"lang":"en"}
+{"q":"improve my prompt","expected":["prompt-rewrite-coach","prompt-optimizer"],"lang":"en"}
+{"q":"short video script for a jewelry reel","expected":["short-video-script-writer-fa","reels-scripting","reels-scripts-batch"],"lang":"en","split":"holdout"}
+{"q":"remove AI-sounding phrases from my text","expected":["humanizer"],"lang":"en"}
+{"q":"design a wedding invitation card","expected":["wedding-invitation-fa"],"lang":"en","split":"holdout"}
+{"q":"SEO audit for my travel agency website","expected":["seo-audit","seo-technical-audit-fa"],"lang":"en"}
+{"q":"content calendar for a jewelry brand Instagram","expected":["editorial-calendar-fa","ig-content-calendar-bot","content-calendar"],"lang":"en"}
+{"q":"YouTube thumbnail that gets clicks","expected":["youtube-thumbnail","thumbnail-ctr-designer"],"lang":"en","split":"holdout"}
+{"q":"invoice template in excel","expected":["invoice-generator-xlsx-fa","official-invoice-fa-kit"],"lang":"en"}
+{"q":"نظرسنجی رضایت مشتری‌های کلینیک دندانپزشکی","expected":["nps-survey-fa","formbricks-nps-loop","survey-results-analyzer"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"قالب پست قبل و بعد برای کار ارتودنسی","expected":["before-after-post-builder","before-after-collage-maker"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"کاور هایلایت‌های اینستاگرام هماهنگ با برند","expected":["highlight-covers-designer","story-highlight-cover-kit"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"متن معرفی اعضای تیم برای سایت آژانس","expected":["team-bio-writer","about-us-page-fa"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"بنر نوروزی برای پیج طلافروشی","expected":["seasonal-banner-generator","seasonal-campaign-fa"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"چک لیست قبل از لانچ سایت فروشگاهی","expected":["site-launch-checklist","shop-setup-checklist-fa"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"اتصال درگاه پرداخت زرین پال به سایت","expected":["payment-gateway-zarinpal","zarinpal-integration-guide"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"بودجه و هزینه‌های ماهانه کافه در اکسل","expected":["budget-vs-actual-fa","cashflow-forecaster"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"پیامک وضعیت سفارش برای مشتری‌ها","expected":["order-status-sms-fa"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"عکس محصولات روی زمینه سفید برای فروشگاه","expected":["ecommerce-packshot-kit","packshot-standards-guide","product-photo-prompt-kit"],"lang":"fa","split":"holdout","set":"post-freeze"}
+{"q":"cover highlight instagram baraye cafe","expected":["highlight-covers-designer","story-highlight-cover-kit"],"lang":"finglish","split":"holdout","set":"post-freeze"}
+{"q":"chek list launch site","expected":["site-launch-checklist"],"lang":"finglish","split":"holdout","set":"post-freeze"}
+{"q":"nazarsanji az moshtariha","expected":["nps-survey-fa","survey-results-analyzer","formbricks-nps-loop"],"lang":"finglish","split":"holdout","set":"post-freeze"}
+{"q":"matn about us baraye site","expected":["about-us-page-fa"],"lang":"finglish","split":"holdout","set":"post-freeze"}
+{"q":"write product descriptions for an online jewelry store","expected":["product-description-fa","product-copy-seo-fa"],"lang":"en","split":"holdout","set":"post-freeze"}
+{"q":"monthly cash flow forecast spreadsheet","expected":["cashflow-forecaster"],"lang":"en","split":"holdout","set":"post-freeze"}
+{"q":"Instagram highlight covers for a dental clinic","expected":["highlight-covers-designer","story-highlight-cover-kit"],"lang":"en","split":"holdout","set":"post-freeze"}
+{"q":"connect a payment gateway to my site","expected":["payment-gateway-zarinpal","zarinpal-integration-guide"],"lang":"en","split":"holdout","set":"post-freeze"}
