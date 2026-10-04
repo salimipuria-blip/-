@@ -1,20 +1,20 @@
-name: poors-ci
+name: psk-ci
 
 on:
   push:
     paths:
-      - 'poors/**'
-      - '.github/workflows/poors-ci.yml'
+      - 'psk/**'
+      - '.github/workflows/psk-ci.yml'
   pull_request:
     paths:
-      - 'poors/**'
-      - '.github/workflows/poors-ci.yml'
+      - 'psk/**'
+      - '.github/workflows/psk-ci.yml'
 
 permissions:
   contents: read
 
 concurrency:
-  group: poors-ci-${{ github.ref }}
+  group: psk-ci-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 10
     defaults:
       run:
-        working-directory: poors
+        working-directory: psk
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

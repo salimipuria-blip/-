@@ -21,7 +21,6 @@
   "skill audit: 1,350 hand-written vs 1,650 templated (docs/SKILL_AUDIT.md)"
  ],
  "pending_owner_action": [
-  "Vercel project Root Directory is set to 'psk' but the folder is 'poors': every build since the rename fails",
   "add at least one free provider key (GROQ_API_KEY or GEMINI_API_KEY)",
   "delete Supabase smoke-test row 11111111-2222-4333-8444-555555555555 from poors_tasks"
  ],
