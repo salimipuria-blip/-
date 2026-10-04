@@ -1,0 +1,1 @@
+{"name":"lithos-live-intelligence","private":true,"version":"2.3.0","type":"module","scripts":{"build":"vite build"},"devDependencies":{"vite":"6.0.0"}}
