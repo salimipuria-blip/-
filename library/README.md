@@ -8,6 +8,7 @@ Shared assets of the PSK project, kept in one place. Backend/frontend plan for e
 | PURIAS portfolio (Puria Salimi, Content Director) | `psk/public/puria/` | served at `/puria/`; static port of the original React/Vite source, same copy, photo (SHA-256 identical) and scroll choreography |
 | About page with founder section | `psk/public/about.html` | served at `/about` |
 | Skills pack (6 Persian business skills) | `library/skills/` | install: `bash library/install.sh [project-path]` |
+| Claude Code skills (3,000 + 6 = 3,006) | `.claude/skills/` | installed at project level; load in every Claude Code session opened on this repo |
 
 Original PURIAS hosting: https://purias-salimi.salimipuria.chatgpt.site/
 
