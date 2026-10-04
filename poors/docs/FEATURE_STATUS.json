@@ -1,8 +1,8 @@
 {
  "as_of": "2026-10-04",
- "implemented": ["lexical IDF router with Persian bridges", "3000 SKILL.md bodies with SHA-256 integrity check", "repaired-hash allowlist for 10 skills", "plan mode with verified skill instructions", "free-tier provider adapter with failover and :free guard", "answer mode with honest failure codes", "bearer-token API guard, fail-closed on Vercel", "local dev server for browser QA"],
- "pending_owner_action": ["create Vercel project from GitHub (root: poors) if automatic linking fails", "add ENGINE_TOKEN", "add at least one free provider key"],
- "pending_build": ["cookie session instead of pasted bearer token", "task history (Supabase free tier)", "30-frame narrative map and cinematic story rebuild", "PWA manifest and icons", "MCP/tool execution", "router gold-set evaluation in CI"],
+ "implemented": ["lexical IDF router with Persian bridges", "3000 SKILL.md bodies with SHA-256 integrity check", "repaired-hash allowlist for 10 skills", "plan mode with verified skill instructions", "free-tier provider adapter with failover and :free guard", "answer mode with honest failure codes", "bearer-token API guard, fail-closed on Vercel", "local dev server for browser QA", "durable task history via secret-gated Supabase RPCs (best effort, persisted flag on every task)", "GET /api/history"],
+ "pending_owner_action": ["create Vercel project from GitHub (root: poors) if automatic linking fails", "add ENGINE_TOKEN", "add at least one free provider key", "set SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, HISTORY_SECRET on the Vercel project and redeploy"],
+ "pending_build": ["cookie session instead of pasted bearer token", "wire storeStatus() into /api/health", "history view in the console UI", "30-frame narrative map and cinematic story rebuild", "PWA manifest and icons", "MCP/tool execution", "router gold-set evaluation in CI"],
  "mocked": [],
  "blocked": []
 }
