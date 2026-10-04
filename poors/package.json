@@ -1,0 +1,14 @@
+{
+ "name": "poors-algorithme-iphone-vercel",
+ "version": "0.4.0",
+ "private": true,
+ "type": "module",
+ "engines": {
+  "node": ">=20"
+ },
+ "scripts": {
+  "test": "node --test tests/*.test.mjs",
+  "check": "node --check api/_core.mjs && node --check api/health.js && node --check api/skills.js && node --check api/tasks.js && node --check engine/router.mjs && node --check engine/providers.mjs && node --check public/engine-ui.js",
+  "dev": "node scripts/dev-server.mjs"
+ }
+}

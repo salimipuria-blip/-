@@ -1,0 +1,66 @@
+{
+ "schema_version": 1,
+ "note": "Skill bodies whose frontmatter was mechanically repaired by the audit. Accepted only when the file hash equals repaired_sha256 exactly.",
+ "repaired": {
+  "accessibility-auditor": {
+   "registry_id": "sha256:97cbb4566d8555d1ace64571267628124fefc26241e74235971c5787a5c28d21",
+   "repaired_sha256": "sha256:9a9af8d18a19d8c43bb6504ae946ad9bd105df90978e1af431298dd7c837172f",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "brand-kit-generator": {
+   "registry_id": "sha256:01268d6d353e205d94317863156596bd310bd0c15c076b6d8f271b3603c582b2",
+   "repaired_sha256": "sha256:c525543e7a23c87a3fa9b6a8767301f1520c10e26e372876a6950d273c02e248",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "content-repurposing": {
+   "registry_id": "sha256:da149dd78ba6afee3fca993d2dd185face9bd1c3cec28a5f8af48f2da9986109",
+   "repaired_sha256": "sha256:5888f469a81838e393fe044c5d1fe237bdc9e476df806b37fa497097ce9e25f2",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "linkedin-optimizer": {
+   "registry_id": "sha256:51e2b673d1bab117744fe6fcba25ca09bdf137f97773a4ff2ba5956d8bf29598",
+   "repaired_sha256": "sha256:0f419c3c8a7a92709b3770cf68db67ab4dc95ccf0d3fd5b62d088614fcdbb243",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "newsletter-writer": {
+   "registry_id": "sha256:a7f66baadd95ca5fbb2f014d7eae0d6f6be5992d99b01ff1675b1ea36ff4f79b",
+   "repaired_sha256": "sha256:a3072f0f35a01c251f7326b9128349a12a8bc791f2cd7480121e67133a640ab9",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "podcast-producer": {
+   "registry_id": "sha256:e5c4b6daea12c30e58c873e2d66ace2ff21656536ca17655ed8e95fcb7425115",
+   "repaired_sha256": "sha256:b07b67a0052111c0f7bdae6a8226cf21dd1c5c2cdf8493a77fb590c08526a684",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "seo-audit": {
+   "registry_id": "sha256:ffdaf2c969fdf97829b8fab6a8c9732b23a0a43f59926f09f66b7b66fa2091bb",
+   "repaired_sha256": "sha256:34434da2aba719bf32c61658cccdd7ac5c97daac456a27ae0a2012e379a25b9d",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "social-media-os": {
+   "registry_id": "sha256:edb25cf2df7a6e4d37e3cf14da22a7e817fa3836c5a9fd4e43a05b8af924af2c",
+   "repaired_sha256": "sha256:78f2aefcd3a3133cee4f4bfaa6edf77c23c2ee81a108ed816646ea0ef0929db2",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "ux-research-planner": {
+   "registry_id": "sha256:773b6dfa28938b72c058d9ff4882ccda48b2f260a0af918f71318fc40ad5400f",
+   "repaired_sha256": "sha256:ef5121f69ec2781f00818d372b53d2d27451b28382de33a82ba5cb6f7b029300",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  },
+  "video-editor": {
+   "registry_id": "sha256:139dc205d4a55d3e8538f6564d5ec2c21704d2e2a616d9dfae47b2336e906de8",
+   "repaired_sha256": "sha256:8af0a0e522ef279cf6a04df4ac1240f1efb731feb4f102c2b76f761d9e4f7ddd",
+   "reason": "quoted a description containing an unescaped colon",
+   "source": "mega-skills-router-plugin audit-manifest status=repaired"
+  }
+ }
+}
