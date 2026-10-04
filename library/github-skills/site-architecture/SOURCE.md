@@ -1,4 +1,4 @@
 Source: https://github.com/alirezarezvani/claude-skills/tree/HEAD/marketing-skill/skills/site-architecture
 Repository: alirezarezvani/claude-skills
 License: MIT (see ../_licenses/alirezarezvani__claude-skills__LICENSE)
-Only SKILL.md is included; companion files from the source folder are not.
+Companion files from the source folder are included (files over 1 MB and nested sub-skills excluded).
