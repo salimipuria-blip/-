@@ -9,7 +9,7 @@
 |---|---|---|---|---|---|---|
 | ۱ | **PSK / 3000** (سایت + موتور ۳۰۰۰ مهارت + PURIAS + دربارهٔ ما) | `-` (پوشهٔ `psk/`) | HTML/CSS/JS ایستا | ۳ تابع Vercel، مسیریاب، ۳۰۰۰ SKILL.md با SHA-256 | Vercel `psk-3000` | 🟢 زنده؛ کلید مدل رایگان هنوز اضافه نشده |
 | ۲ | **Omni LLM Orchestrator** | `porya-omni-llm-orchestrator` (خصوصی) | — | ۱۰ تابع Supabase Edge (skill-router، free-llm-router، …) | Supabase | 🟡 هم‌پوشانی با موتور PSK؛ تاریخی |
-| ۳ | **CHAM Store OS** (FJCOD) | `FJCod` | React 19 + TypeScript + Vite | ندارد؛ داده در مرورگر | Vercel `cham-store-os` | 🔴 رمزهای اولیه در README عمومی؛ ورود سمت کاربر |
+| ۳ | **CHAM Store OS** (FJCOD) | `FJCod` | React 19 + TypeScript + Vite | ندارد؛ داده در مرورگر | Vercel `cham-store-os` | 🟡 ورود و داده فقط سمت مرورگر |
 | ۴ | **Viking Experience Command** | `viking-experience-command` (خصوصی) | HTML ایستا + PWA | Supabase Auth + RLS + باکت خصوصی | Vercel | 🟡 آخرین کامیت حالت «بدون ورود» را فعال کرده؛ با README هم‌خوان نیست |
 | ۵ | **Lithos Live Intelligence** | نامشخص | Vite | نامشخص | Vercel `lithos-live-intelligence-vercel-fixed` | 🔴 به اشتباه به مخزن `-` وصل است؛ هر بیلد شکست می‌خورد |
 | ۶ | **BISON Brand Book** | `bison-brand-book` | Vite، اسکرول سینمایی | ندارد | GitHub Pages + Vercel | 🟢 پایدار |
@@ -20,7 +20,7 @@
 
 | اولویت | کار | پروژه | چرا |
 |---|---|---|---|
-| P0 | حذف جدول رمزهای اولیه از README عمومی و تعویض همهٔ رمزها | CHAM | هرکس مخزن را ببیند وارد سیستم فروشگاه می‌شود |
+| P0 | بازبینی امنیتی ورود و تعویض رمزها (جزئیات در مسیر خصوصی) | CHAM | سخت‌سازی دسترسی پیش از استفادهٔ واقعی در فروشگاه |
 | P0 | قطع اتصال پروژهٔ Lithos از مخزن `-` در Vercel و اتصال به مخزن درست | Lithos | هر کامیت PSK یک بیلد شکست‌خورده می‌سازد |
 | P1 | افزودن یک کلید مدل رایگان (Groq یا Google AI Studio) در Vercel | PSK | حالت «پاسخ» موتور فعال شود |
 | P1 | روشن کردن تکلیف حالت «بدون ورود» Viking: موقت یا دائمی | Viking | دادهٔ تیم بدون احراز هویت در دسترس است |
