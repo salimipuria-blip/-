@@ -2,11 +2,7 @@
 
 The 3,000 highest-ranked skills collected from 50 public GitHub skill repositories with 5,000+ stars (star counts as shown on GitHub topic pages, 2026-10-04).
 
-**Not auto-loaded.** These live in `library/`, not `.claude/skills/`, so they don't change Claude Code's behavior until you copy the ones you want:
-
-```bash
-cp -r library/github-skills/<name> .claude/skills/
-```
+**Active.** Every skill here is also installed in `.claude/skills/`, so Claude Code loads it in any session opened on this repo. To deactivate one, delete its folder from `.claude/skills/` (the copy here stays as the archive).
 
 ## How they were selected
 From 10,859 `SKILL.md` files (4,192 unique names after filtering):
