@@ -8,7 +8,7 @@
  },
  "scripts": {
   "test": "node --test tests/*.test.mjs",
-  "check": "node --check api/_core.mjs && node --check api/health.js && node --check api/skills.js && node --check api/tasks.js && node --check engine/router.mjs && node --check engine/providers.mjs && node --check public/engine-ui.js",
+  "check": "node --check api/_core.mjs && node --check api/health.js && node --check api/skills.js && node --check api/tasks.js && node --check engine/router.mjs && node --check engine/providers.mjs && node --check public/engine-ui.js && node --check public/about.js",
   "dev": "node scripts/dev-server.mjs"
  }
 }
