@@ -7,7 +7,7 @@ const dir=join(dirname(fileURLToPath(import.meta.url)),'..','public','puria');
 const html=readFileSync(join(dir,'index.html'),'utf8');
 const js=readFileSync(join(dir,'puria.js'),'utf8');
 test('PURIAS page assets exist and only load local scripts',()=>{
- for(const f of ['puria.css','puria.js','puria-salimi-salt-flat.jpeg'])assert.ok(existsSync(join(dir,f)),f);
+ for(const f of ['puria.css','puria.js','puria-salimi-salt-flat.jpeg']){assert.ok(existsSync(join(dir,f)),f);assert.ok(html.includes('/puria/'+f),f)}
  for(const m of html.matchAll(/<script[^>]*src="([^"]+)"/g))assert.ok(!/^https?:/.test(m[1]),m[1]);
 });
 test('PURIAS keeps bilingual copy and WhatsApp conversion',()=>{
