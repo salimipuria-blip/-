@@ -15,15 +15,52 @@ export function headers(res) {
   return res;
 }
 export function reply(res,status,body) {return headers(res).status(status).json(body);}
+// ---- Auth: HttpOnly session cookie (browser) or Authorization: Bearer (scripts/tests). ----
+export const SESSION_COOKIE='poors_session';
+export const SESSION_TTL=604800; // 7 days, seconds
+const CSRF_HEADER='x-requested-with',CSRF_VALUE='poors';
+const SAFE_METHODS=new Set(['GET','HEAD','OPTIONS']);
+const engineSecret=()=>process.env.ENGINE_TOKEN||'';
+const sha=v=>crypto.createHash('sha256').update(String(v)).digest();
+// Equal-length digests: no early exit and no length leak.
+export function safeEqual(a,b){return crypto.timingSafeEqual(sha(a),sha(b));}
+// Session key is derived from ENGINE_TOKEN, so rotating the token revokes every session.
+const sessionKey=secret=>crypto.createHmac('sha256',secret).update('poors-session-v1').digest();
+const sign=(secret,exp)=>crypto.createHmac('sha256',sessionKey(secret)).update(String(exp)).digest('base64url');
+export function signSession(secret,exp){return `${exp}.${sign(secret,exp)}`;}
+export function verifySession(secret,value,now=Math.floor(Date.now()/1000)){
+  if(!secret||typeof value!=='string')return false;
+  const m=/^(\d{1,12})\.([A-Za-z0-9_-]{43})$/.exec(value);if(!m)return false;
+  const exp=Number(m[1]);if(exp<=now||exp>now+SESSION_TTL+60)return false;
+  const a=Buffer.from(m[2]),b=Buffer.from(sign(secret,exp));
+  return a.length===b.length&&crypto.timingSafeEqual(a,b);
+}
+export function readCookie(req,name){
+  for(const part of String(req.headers?.cookie||'').split(';')){const i=part.indexOf('=');if(i<0)continue;
+    if(part.slice(0,i).trim()===name)return part.slice(i+1).trim();}
+  return null;
+}
+export function sessionCookie(value,maxAge){return `${SESSION_COOKIE}=${value}; HttpOnly; Secure; SameSite=Strict; Path=/api; Max-Age=${maxAge}`;}
+// Fail closed on the public deployment if no access token has been provisioned.
+export function configured(res){
+  if((process.env.VERCEL||process.env.NODE_ENV==='production')&&engineSecret().length<24){reply(res,503,{error:'ENGINE_TOKEN not configured (24+ characters required)'});return false;}
+  return true;
+}
+// Returns {ok, via, csrf}. via: 'open' (no token configured, local only), 'bearer' or 'cookie'.
+export function authenticate(req){
+  const secret=engineSecret();if(!secret)return {ok:true,via:'open'};
+  const authz=req.headers?.authorization;
+  if(authz!==undefined&&authz!=='')return {ok:safeEqual(String(authz),'Bearer '+secret),via:'bearer'};
+  const ok=verifySession(secret,readCookie(req,SESSION_COOKIE));
+  return {ok,via:'cookie',csrf:ok&&(SAFE_METHODS.has(req.method)||String(req.headers?.[CSRF_HEADER]||'').toLowerCase()===CSRF_VALUE)};
+}
 export function guard(req,res,method) {
   if(req.method!==method){res.setHeader('Allow',method);reply(res,405,{error:'Method not allowed'});return false;}
-  // Fail closed on the public deployment if no access token has been provisioned.
-  const secret=process.env.ENGINE_TOKEN||'';
-  if((process.env.VERCEL||process.env.NODE_ENV==='production')&&secret.length<24){reply(res,503,{error:'ENGINE_TOKEN not configured (24+ characters required)'});return false;}
-  if(secret){const actual=String(req.headers?.authorization||'');const expected='Bearer '+secret;
-    const a=Buffer.from(actual),b=Buffer.from(expected);
-    if(a.length!==b.length||!crypto.timingSafeEqual(a,b)){reply(res,401,{error:'Access token required'});return false;}
-  }
+  if(!configured(res))return false;
+  const auth=authenticate(req);
+  if(!auth.ok){reply(res,401,{error:'Access token required'});return false;}
+  // Cookie-authenticated state-changing requests must carry a header a cross-site form cannot set.
+  if(auth.via==='cookie'&&!auth.csrf){reply(res,403,{error:'Missing X-Requested-With header'});return false;}
   return true;
 }
 export function getRegistry(){return registry;}
