@@ -46,6 +46,17 @@ test('answer uses the free provider with failover and never invents output',asyn
   const x=res();await tasks(request('answer'),x);assert.equal(x.body.status,'failed');assert.equal(x.body.error.code,'PROVIDERS_EXHAUSTED');
  }finally{globalThis.fetch=realFetch;delete process.env.GROQ_API_KEY;delete process.env.GEMINI_API_KEY;}
 });
+test('a 400 from one provider fails over; only all-4xx is reported as rejected',async()=>{
+ const {chat}=await import('../engine/providers.mjs');
+ const env={GROQ_API_KEY:'gsk_test',GEMINI_API_KEY:'AIza_test'};
+ const msgs=[{role:'user',content:'hi'}];
+ const ok=await chat(msgs,{env,fetchImpl:async url=>url.includes('groq')
+   ?new Response('{"error":{"code":"model_decommissioned"}}',{status:400})
+   :new Response(JSON.stringify({choices:[{message:{content:'ok'}}]}),{status:200})});
+ assert.equal(ok.provider,'gemini');assert.deepEqual(ok.attempts.map(a=>a.status),[400,200]);
+ await assert.rejects(chat(msgs,{env,fetchImpl:async()=>new Response('{}',{status:400})}),e=>e.code==='PROVIDER_REJECTED'&&e.attempts.length===2);
+ await assert.rejects(chat(msgs,{env,fetchImpl:async url=>new Response('{}',{status:url.includes('groq')?400:429})}),e=>e.code==='PROVIDERS_EXHAUSTED');
+});
 test('OpenRouter is refused unless the model is a :free model',async()=>{
  const {configuredProviders}=await import('../engine/providers.mjs');
  assert.equal(configuredProviders({OPENROUTER_API_KEY:'k',OPENROUTER_MODEL:'openai/gpt-4o'}).length,0);

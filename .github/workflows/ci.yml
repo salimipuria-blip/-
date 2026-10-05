@@ -31,6 +31,7 @@ jobs:
           node-version: 22
       - run: npm install --no-audit --no-fund
       - run: node --check api/buffer-sync.js
+      - run: npm test
       - run: npm run build
 
   router:
