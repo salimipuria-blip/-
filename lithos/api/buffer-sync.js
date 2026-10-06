@@ -26,43 +26,44 @@ export default async function handler(req,res){
   try{await validate(token)}catch(e){return res.status(401).json({error:e.message||'Lithos session invalid'})}
 
   // ============================================================================
-  // RECONSTRUCTED TAIL — the original handler body past this point was truncated
-  // during source recovery from the Vercel deployment and could not be retrieved
-  // verbatim. The structure below matches the recovered helpers (gql/rpc/val) and
-  // the data contract the frontend (index.html) reads. VERIFY against the original
-  // before relying on it — especially: the exact Buffer GraphQL query, the metric
-  // `type` keys passed to val(), and the Supabase RPC names/args used to persist.
+  // RECONSTRUCTED TAIL — the original body past this point was lost during source
+  // recovery. Persistence uses the RPCs that exist in the Lithos Supabase project:
+  //   lithos_ingest_buffer_snapshot(p_payload jsonb)  -> inserts the snapshot (the whole
+  //     payload is kept as `metadata`) and marks the buffer source 'connected'
+  //   lithos_set_buffer_sync_state(p_status text, p_error text)
+  // Still UNVERIFIED: the Buffer GraphQL query and metric `type` keys below.
   // ============================================================================
-  const bufferKey = process.env.BUFFER_API_KEY;
+  const markError=async message=>{try{await rpc('lithos_set_buffer_sync_state',{p_status:'error',p_error:String(message).slice(0,500)},token)}catch{}};
+  const bufferKey=process.env.BUFFER_API_KEY;
   if(!bufferKey){
-    try{ await rpc('lithos_set_sync_state',{p_source:'buffer',p_status:'error'},token); }catch{}
-    return res.status(400).json({error:'BUFFER_API_KEY not configured'});
+    await markError('BUFFER_API_KEY not configured');
+    return res.status(500).json({error:'BUFFER_API_KEY not configured'});
   }
   try{
     // TODO(verify): exact Buffer GraphQL query and response shape.
-    const data = await gql(bufferKey, 'query { account { channels { metrics { type value } } } }');
-    const metrics = data?.account?.channels?.[0]?.metrics || [];
-
-    // TODO(verify): metric `type` keys below must match what Buffer returns.
-    const snapshot = {
-      followers: val(metrics,'followers'),
-      reach: val(metrics,'reach'),
-      impressions: val(metrics,'impressions'),
-      saves: val(metrics,'saves'),
-      shares: val(metrics,'shares'),
-      comments: val(metrics,'comments'),
-      engagement_rate: val(metrics,'engagement_rate'),
-      avg_watch_time_seconds: val(metrics,'avg_watch_time_seconds'),
-      metadata: { followers_supported: metrics.some(x=>x.type==='followers') }
+    const data=await gql(bufferKey,'query { account { channels { id name metrics { type value } } } }');
+    const channel=data?.account?.channels?.[0]||{};
+    const metrics=channel.metrics||[];
+    const payload={
+      captured_at:new Date().toISOString(),
+      channel_id:channel.id??null,
+      channel_name:channel.name??null,
+      // Count columns are integer in Postgres; a fractional value would fail the insert.
+      followers:Math.round(val(metrics,'followers')),
+      reach:Math.round(val(metrics,'reach')),
+      impressions:Math.round(val(metrics,'impressions')),
+      saves:Math.round(val(metrics,'saves')),
+      shares:Math.round(val(metrics,'shares')),
+      comments:Math.round(val(metrics,'comments')),
+      engagement_rate:val(metrics,'engagement_rate'),
+      avg_watch_time_seconds:val(metrics,'avg_watch_time_seconds'),
+      // The dashboard hides the follower count when Buffer does not report it.
+      followers_supported:metrics.some(x=>x.type==='followers')
     };
-
-    // TODO(verify): RPC name/args that persist the insight snapshot + sync state.
-    await rpc('lithos_record_insight_snapshot',{p_snapshot:snapshot},token);
-    await rpc('lithos_set_sync_state',{p_source:'buffer',p_status:'synced'},token);
-
-    return res.status(200).json({ok:true, snapshot});
+    const snapshotId=await rpc('lithos_ingest_buffer_snapshot',{p_payload:payload},token);
+    return res.status(200).json({ok:true,snapshotId,snapshot:payload});
   }catch(e){
-    try{ await rpc('lithos_set_sync_state',{p_source:'buffer',p_status:'error'},token); }catch{}
+    await markError(e.message||'Buffer sync failed');
     return res.status(502).json({error:e.message||'Buffer sync failed'});
   }
 }

@@ -8,9 +8,10 @@ layer, with Supabase auth (magic link) and a serverless Buffer sync endpoint.
 > The app had never been committed to git. `index.html`, `package.json`, `vercel.json` and
 > `vite.config.js` are byte-for-byte recoveries. **`api/buffer-sync.js` is partially
 > reconstructed** — the helper functions and the start of the handler are original; the tail
-> (the exact Buffer GraphQL query, metric keys, and the Supabase RPC calls that persist data)
-> was truncated during recovery and is marked `RECONSTRUCTED` in the file. Verify it against the
-> original before relying on the sync.
+> was truncated during recovery and is marked `RECONSTRUCTED` in the file. Persistence now uses
+> the RPCs that exist in the Supabase project (`lithos_ingest_buffer_snapshot`,
+> `lithos_set_buffer_sync_state`). The Buffer GraphQL query and metric keys are still
+> unverified — check them against Buffer's API before relying on the sync.
 
 ## Stack
 - **Frontend:** single static `index.html` (Vite build, Supabase JS from CDN).
@@ -34,6 +35,7 @@ public by design; data access is protected by Supabase Row Level Security, not b
 ## Local dev
 ```bash
 npm install
+npm test        # sync handler against mocked Buffer + Supabase
 npm run build   # vite build -> dist/
 ```
 Requires a Supabase project with the tables above (RLS enabled) and a Buffer token to exercise sync.

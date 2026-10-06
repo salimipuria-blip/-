@@ -51,10 +51,21 @@ REPO_ROOT = _repo_root()
 ARABIC_VARIANTS = str.maketrans({"ي": "ی", "ى": "ی", "ك": "ک"})
 
 
+def _stem(token: str) -> str:
+    """Fold common English inflections so "testing", "tests" and "test" match."""
+    if not token.isascii() or not token.isalpha():
+        return token
+    if token.endswith("ing") and len(token) > 5:
+        return token[:-3]
+    if token.endswith("s") and not token.endswith("ss") and len(token) > 3:
+        return token[:-1]
+    return token
+
+
 def _tokens(value: str) -> set[str]:
     normalized = unicodedata.normalize("NFKC", value).casefold().translate(ARABIC_VARIANTS)
     raw = re.findall(r"[\w]+", normalized, flags=re.UNICODE)
-    return {ALIASES.get(token, token) for token in raw if token not in STOPWORDS and len(token) > 1}
+    return {_stem(ALIASES.get(token, token)) for token in raw if token not in STOPWORDS and len(token) > 1}
 
 
 def search_index(index_path: Path, query: str, min_score: float = 0.50) -> list[dict[str, object]]:
@@ -62,10 +73,12 @@ def search_index(index_path: Path, query: str, min_score: float = 0.50) -> list[
     query_tokens = _tokens(query)
     if not query_tokens:
         return []
-    results: list[dict[str, object]] = []
+    ranked: list[tuple[tuple[object, ...], dict[str, object]]] = []
     for skill in payload["skills"]:
-        best_score = 0.0
-        matched_trigger = ""
+        name_hits = len(query_tokens & _tokens(skill["name"]))
+        best_score = name_hits / len(query_tokens)
+        best_precision = 0.0
+        matched_trigger = skill["name"] if name_hits else ""
         for trigger in skill["triggers"]:
             trigger_tokens = _tokens(trigger)
             if not trigger_tokens:
@@ -74,12 +87,16 @@ def search_index(index_path: Path, query: str, min_score: float = 0.50) -> list[
             score = overlap / len(query_tokens)
             if query.casefold().strip() in trigger.casefold():
                 score = max(score, 1.0)
-            if score > best_score:
+            # Among equal coverage, prefer the trigger that is mostly about the query.
+            precision = overlap / len(trigger_tokens)
+            if (score, precision) > (best_score, best_precision):
                 best_score = score
+                best_precision = precision
                 matched_trigger = trigger
         if best_score >= min_score:
-            results.append({"name": skill["name"], "domain": skill["domain"], "source_path": skill["source_path"], "path": str(REPO_ROOT / skill["source_path"]), "score": round(best_score, 6), "matched_trigger": matched_trigger})
-    return sorted(results, key=lambda item: (-item["score"], item["domain"], item["name"]))
+            result = {"name": skill["name"], "domain": skill["domain"], "source_path": skill["source_path"], "path": str(REPO_ROOT / skill["source_path"]), "score": round(best_score, 6), "matched_trigger": matched_trigger}
+            ranked.append(((-best_score, -name_hits, -best_precision, skill["domain"], skill["name"]), result))
+    return [result for _, result in sorted(ranked, key=lambda pair: pair[0])]
 
 
 def main(argv: list[str] | None = None) -> int:

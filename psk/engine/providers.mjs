@@ -32,7 +32,8 @@ const RETRY=new Set([408,409,425,429,500,502,503,504]);
 
 /**
  * Try each configured provider once, in order. Returns {text, provider, model, attempts}
- * or throws {code, attempts} with code NO_PROVIDER_CONFIGURED | PROVIDERS_EXHAUSTED | PROVIDER_REJECTED.
+ * or throws {code, attempts} with code NO_PROVIDER_CONFIGURED | PROVIDERS_EXHAUSTED | PROVIDER_REJECTED
+ * (PROVIDER_REJECTED only when every provider returned a non-retryable 4xx).
  */
 export async function chat(messages,{env=process.env,fetchImpl=globalThis.fetch,timeoutMs=20000,maxTokens=1200,deadline=Date.now()+50000}={}){
   const list=configuredProviders(env);
@@ -48,9 +49,10 @@ export async function chat(messages,{env=process.env,fetchImpl=globalThis.fetch,
         body:JSON.stringify({model:p.model,messages,max_tokens:maxTokens,temperature:0.4})});
       const ms=Date.now()-started;
       if(!res.ok){
+        // Every failure moves on to the next free provider: a 400 is often provider-specific
+        // (e.g. a decommissioned default model), not proof the request itself is bad.
         attempts.push({provider:p.id,model:p.model,status:res.status,ms});
-        if(RETRY.has(res.status)||res.status===401||res.status===402||res.status===403||res.status===404)continue;
-        throw Object.assign(new Error('Provider rejected the request'),{code:'PROVIDER_REJECTED',attempts});
+        continue;
       }
       const data=await res.json();
       const text=data?.choices?.[0]?.message?.content;
@@ -58,9 +60,12 @@ export async function chat(messages,{env=process.env,fetchImpl=globalThis.fetch,
       attempts.push({provider:p.id,model:p.model,status:200,ms});
       return {text:text.trim(),provider:p.id,model:data.model||p.model,usage:data.usage||null,attempts};
     }catch(e){
-      if(e.code==='PROVIDER_REJECTED')throw e;
       attempts.push({provider:p.id,model:p.model,status:e.name==='AbortError'?'timeout':'network',ms:Date.now()-started});
     }finally{clearTimeout(timer);}
   }
+  // Only when every provider answered with a client error (and none was rate-limited or down)
+  // is the request itself the likely problem.
+  const rejected=attempts.length>0&&attempts.every(a=>typeof a.status==='number'&&a.status>=400&&a.status<500&&!RETRY.has(a.status));
+  if(rejected)throw Object.assign(new Error('Every configured provider rejected the request'),{code:'PROVIDER_REJECTED',attempts});
   throw Object.assign(new Error('All configured free providers failed or are rate-limited'),{code:'PROVIDERS_EXHAUSTED',attempts});
 }
